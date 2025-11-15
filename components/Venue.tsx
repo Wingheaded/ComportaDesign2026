@@ -10,7 +10,7 @@ const Venue: React.FC<VenueProps> = ({ language }) => {
   return (
     <section className="bg-white py-20 md:py-32">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-grotesk text-3xl md:text-4xl font-medium mb-6">
               {CONTENT.venue.title[language]}
@@ -22,23 +22,29 @@ const Venue: React.FC<VenueProps> = ({ language }) => {
               href="https://www.google.com/maps/search/?api=1&query=Casa+da+Cultura+da+Comporta" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-medium text-soft-black underline hover:opacity-75 transition-opacity"
+              className="inline-flex items-center gap-2 font-medium text-soft-black underline hover:opacity-75 transition-opacity"
             >
-              {CONTENT.venue.address[language]}
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              <span>{CONTENT.venue.address[language]}</span>
             </a>
           </div>
-          <div className="image-grid">
+          <div className="grid grid-cols-2 grid-rows-2 gap-4 h-[50vh] min-h-[400px]">
             <img
-              src="https://images.unsplash.com/photo-1617103998813-e617e44837a9?q=80&w=1200&auto=format&fit=crop"
-              alt="Exterior of a modern, white building representing Casa da Cultura da Comporta"
+              src="https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/comporta/casa-exterior.jpg"
+              alt="Exterior of the Casa da Cultura da Comporta, a white building with a green door and blue trim."
+              className="col-span-2 w-full h-full object-cover rounded-lg shadow-md"
             />
             <img
-              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=600&auto=format&fit=crop"
-              alt="Minimalist interior view of a room with a designer chair"
+              src="https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/comporta/casa-interior.jpeg"
+              alt="Wide-angle view of the empty, spacious interior of the Casa da Cultura, with concrete floors and a high wooden-beamed ceiling."
+              className="w-full h-full object-cover rounded-lg shadow-md"
             />
             <img
-              src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop"
-              alt="Elegant interior seating area with modern furniture"
+              src="https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/comporta/casa-seating.jpeg"
+              alt="View from behind rows of wooden chairs looking towards the empty stage area inside the Casa da Cultura."
+              className="w-full h-full object-cover rounded-lg shadow-md"
             />
           </div>
         </div>

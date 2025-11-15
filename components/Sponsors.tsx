@@ -9,27 +9,28 @@ interface SponsorsProps {
 interface Sponsor {
   name: string;
   url: string;
+  logo: string;
 }
 
 const mainSponsors: Sponsor[] = [
-    { name: 'Thilburg', url: 'https://www.thilburg.com/' },
-    { name: 'Passa ao Futuro', url: 'https://www.passaaofuturo.com/' },
-    { name: 'Poolins', url: 'https://poolins.com/en/poolins-en/' },
-    { name: 'MorDesign', url: 'https://mordesign.com/' },
-    { name: 'Wewood', url: 'https://www.wewood.eu/' }
+    { name: 'Thilburg', url: 'https://www.thilburg.com/', logo: '/logos/thilburg-logo.png' },
+    { name: 'Passa ao Futuro', url: 'https://www.passaaofuturo.com/', logo: '/logos/passa-ao-futuro-logo.png' },
+    { name: 'Poolins', url: 'https://poolins.com/en/poolins-en/', logo: '/logos/poolins-logo.png' },
+    { name: 'MorDesign', url: 'https://mordesign.com/', logo: '/logos/mordesign-logo.png' },
+    { name: 'Wewood', url: 'https://www.wewood.eu/', logo: '/logos/wewood-logo.png' }
 ];
 
 const partners: Sponsor[] = [
-  { name: 'Fundação Herdade da Comporta', url: 'https://www.fundacaohdc.pt/' },
-  { name: 'Tróia Design Hotel', url: 'https://www.troiadesignhotel.com/pt/' },
-  { name: 'Dils', url: 'https://dils.pt/' },
-  { name: 'Huître', url: 'https://huitre.pt/' },
-  { name: 'Polestar', url: 'https://www.polestar.com/pt/' },
-  { name: 'TUU', url: 'https://tuu.pt/' },
-  { name: 'CÊ Studio Comporta', url: 'https://cestudio.pt/' },
-  { name: 'Câmara Municipal de Alcácer do Sal', url: 'https://www.cm-alcacerdosal.pt/' },
-  { name: 'Cinemateca', url: 'https://www.cinemateca.pt/' },
-  { name: 'Home-tec', url: 'https://home-tec.pt/?lang=en' }
+  { name: 'Fundação Herdade da Comporta', url: 'https://www.fundacaohdc.pt/', logo: '/logos/fhc-logo.png' },
+  { name: 'Tróia Design Hotel', url: 'https://www.troiadesignhotel.com/pt/', logo: '/logos/tdh-logo.png' },
+  { name: 'Dils', url: 'https://dils.pt/', logo: '/logos/dils-logo.png' },
+  { name: 'Huître', url: 'https://huitre.pt/', logo: '/logos/huitre-logo.png' },
+  { name: 'Polestar', url: 'https://www.polestar.com/pt/', logo: '/logos/polestar-logo.png' },
+  { name: 'TUU', url: 'https://tuu.pt/', logo: '/logos/tuu-logo.png' },
+  { name: 'CÊ Studio Comporta', url: 'https://cestudio.pt/', logo: '/logos/ce-studio-logo.png' },
+  { name: 'Câmara Municipal de Alcácer do Sal', url: 'https://www.cm-alcacerdosal.pt/', logo: '/logos/cm-alcacer-do-sal-logo.png' },
+  { name: 'Cinemateca', url: 'https://www.cinemateca.pt/', logo: '/logos/cinemateca-logo.png' },
+  { name: 'Home-tec', url: 'https://home-tec.pt/?lang=en', logo: '/logos/home-tec-logo.png' }
 ];
 
 const SponsorLogo: React.FC<{ sponsor: Sponsor }> = ({ sponsor }) => (
@@ -37,10 +38,10 @@ const SponsorLogo: React.FC<{ sponsor: Sponsor }> = ({ sponsor }) => (
     href={sponsor.url} 
     target="_blank" 
     rel="noopener noreferrer" 
-    className="h-20 flex items-center justify-center p-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+    className="h-20 flex items-center justify-center p-4 grayscale opacity-60 hover:grayscale-log-0 hover:opacity-100 transition-all duration-300"
     aria-label={`Visit ${sponsor.name} website`}
   >
-    <span className="font-grotesk text-lg text-center">{sponsor.name}</span>
+    <img src={sponsor.logo} alt={`${sponsor.name} logo`} className="max-h-full max-w-full object-contain" />
   </a>
 );
 
