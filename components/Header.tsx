@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
           Comporta Design 2026
         </a>
 
-        <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 items-center bg-white/60 backdrop-blur-sm px-6 lg:px-8 py-2.5 rounded-full border border-soft-black/5 shadow-sm space-x-4 lg:space-x-6 whitespace-nowrap z-20">
+        <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 items-center space-x-4 lg:space-x-6 whitespace-nowrap z-20">
           <a href="#home" onClick={scrollToTop} className="text-sm font-medium hover:text-soft-black/60 transition-colors cursor-pointer">
             {CONTENT.navigation.home[language]}
           </a>

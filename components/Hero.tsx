@@ -60,8 +60,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       <div className="w-full md:w-1/2 h-[50vh] md:h-auto relative order-1 md:order-2">
         <div className="absolute inset-0 bg-soft-gray">
              <img 
-                src="https://res.cloudinary.com/dm0i1mw8e/image/upload/v1741233740/6612084f-8435-4b4d-8e5e-3df88ef86f30_original.png" 
-                alt="Architectural detail of Comporta traditional thatched roof against white wall" 
+                src="https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/comporta/HeroImage.png" 
+                alt="Hero image" 
                 className="w-full h-full object-cover opacity-90 grayscale-[20%] contrast-[1.05]"
              />
              <div className="absolute inset-0 bg-gradient-to-t from-light-sand/20 to-transparent md:hidden"></div>

@@ -40,6 +40,7 @@ interface Movie {
   director: string;
   year: string;
   image: string;
+  summary: LocalizedString;
 }
 
 interface ContentStructure {
@@ -520,60 +521,180 @@ export const CONTENT: ContentStructure = {
     },
     schedule: [
         {
-            date: { [Language.PT]: "4-5 Abril", [Language.EN]: "April 4-5" },
+            date: { [Language.PT]: "10 Abril", [Language.EN]: "April 10" },
             title: "O Espírito da Colmeia",
             director: "Víctor Erice",
             year: "1973",
-            image: "https://upload.wikimedia.org/wikipedia/en/7/78/The_Spirit_of_the_Beehive.jpg"
+            image: "https://upload.wikimedia.org/wikipedia/en/7/78/The_Spirit_of_the_Beehive.jpg",
+            summary: {
+              [Language.PT]: "Numa vila isolada na Espanha de 1940, uma menina de seis anos torna-se obcecada pelo monstro de Frankenstein após ver o filme, confundindo realidade e fantasia num retrato poético da infância sob o franquismo.",
+              [Language.EN]: "In a remote Spanish village in 1940, a six-year-old girl becomes obsessed with Frankenstein's monster after watching the film, blurring reality and fantasy in a poetic portrait of childhood under Franco's rule."
+            }
         },
         {
-            date: { [Language.PT]: "11-12 Abril", [Language.EN]: "April 11-12" },
+            date: { [Language.PT]: "11 Abril", [Language.EN]: "April 11" },
             title: "O Sabor do Saké",
             director: "Yasujirō Ozu",
             year: "1962",
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/An_Autumn_Afternoon_poster.jpg/405px-An_Autumn_Afternoon_poster.jpg"
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/An_Autumn_Afternoon_poster.jpg/405px-An_Autumn_Afternoon_poster.jpg",
+            summary: {
+              [Language.PT]: "O último filme de Ozu. Um viúvo idoso decide arranjar casamento para a sua filha devota, percebendo que ao fazê-lo ficará inevitavelmente sozinho. Uma reflexão serena sobre a passagem do tempo e a solidão.",
+              [Language.EN]: "Ozu's final film. An aging widower decides to arrange a marriage for his devoted daughter, realizing that doing so will leave him inevitably alone. A serene reflection on the passage of time and loneliness."
+            }
         },
         {
-            date: { [Language.PT]: "18-19 Abril", [Language.EN]: "April 18-19" },
+            date: { [Language.PT]: "17 Abril", [Language.EN]: "April 17" },
             title: "A Prisioneira",
             director: "Chantal Akerman",
             year: "2000",
-            image: "https://m.media-amazon.com/images/M/MV5BMjE5NTM0NTk5M15BMl5BanBnXkFtZTcwMzQzMzUyMQ@@._V1_.jpg"
+            image: "https://m.media-amazon.com/images/M/MV5BMjE5NTM0NTk5M15BMl5BanBnXkFtZTcwMzQzMzUyMQ@@._V1_.jpg",
+            summary: {
+              [Language.PT]: "Livremente inspirado em Proust, o filme explora a obsessão amorosa e o ciúme doentio de Simon por Ariane, transformando o apartamento parisiense numa prisão de olhares e segredos.",
+              [Language.EN]: "Loosely inspired by Proust, the film explores Simon's obsessive love and sickly jealousy for Ariane, transforming their Parisian apartment into a prison of gazes and secrets."
+            }
         },
         {
-            date: { [Language.PT]: "25-26 Abril", [Language.EN]: "April 25-26" },
+            date: { [Language.PT]: "18 Abril", [Language.EN]: "April 18" },
             title: "O Desprezo",
             director: "Jean-Luc Godard",
             year: "1963",
-            image: "https://upload.wikimedia.org/wikipedia/en/3/38/Le_mepris_poster.jpg"
+            image: "https://upload.wikimedia.org/wikipedia/en/3/38/Le_mepris_poster.jpg",
+            summary: {
+              [Language.PT]: "Durante a rodagem de uma adaptação da Odisseia em Capri, o casamento de um guionista e uma datilógrafa desmorona-se à medida que a arte, o comércio e o desamor colidem sob o sol do Mediterrâneo.",
+              [Language.EN]: "During the filming of an adaptation of The Odyssey in Capri, the marriage between a screenwriter and a typist disintegrates as art, commerce, and heartbreak collide under the Mediterranean sun."
+            }
         },
         {
-            date: { [Language.PT]: "2-3 Maio", [Language.EN]: "May 2-3" },
+            date: { [Language.PT]: "24 Abril", [Language.EN]: "April 24" },
             title: "A Aventura",
             director: "Michelangelo Antonioni",
             year: "1960",
-            image: "https://upload.wikimedia.org/wikipedia/en/8/8a/L%27Avventura_movie_poster.jpg"
+            image: "https://upload.wikimedia.org/wikipedia/en/8/8a/L%27Avventura_movie_poster.jpg",
+            summary: {
+              [Language.PT]: "Durante um cruzeiro nas Ilhas Eólias, uma mulher desaparece misteriosamente. O seu namorado e a sua melhor amiga iniciam uma busca que se transforma num estudo sobre o vazio existencial e a alienação.",
+              [Language.EN]: "During a cruise in the Aeolian Islands, a woman mysteriously disappears. Her boyfriend and best friend begin a search that transforms into a study of existential emptiness and alienation."
+            }
         },
         {
-            date: { [Language.PT]: "9-10 Maio", [Language.EN]: "May 9-10" },
+            date: { [Language.PT]: "25 Abril", [Language.EN]: "April 25" },
             title: "A Noite",
             director: "Michelangelo Antonioni",
             year: "1961",
-            image: "https://upload.wikimedia.org/wikipedia/en/0/0c/La_Notte_poster.jpg"
+            image: "https://upload.wikimedia.org/wikipedia/en/0/0c/La_Notte_poster.jpg",
+            summary: {
+              [Language.PT]: "Um dia na vida de um casal em crise em Milão. Entre visitas a hospitais, festas literárias e deambuladas noturnas, confrontam o fim do amor e a incomunicabilidade da vida moderna.",
+              [Language.EN]: "A day in the life of a couple in crisis in Milan. Between hospital visits, literary parties, and night wanderings, they confront the end of love and the incommunicability of modern life."
+            }
         },
         {
-            date: { [Language.PT]: "16-17 Maio", [Language.EN]: "May 16-17" },
+            date: { [Language.PT]: "1 Maio", [Language.EN]: "May 1" },
             title: "O Eclipse",
             director: "Michelangelo Antonioni",
             year: "1962",
-            image: "https://upload.wikimedia.org/wikipedia/en/4/44/L%27Eclisse.jpg"
+            image: "https://upload.wikimedia.org/wikipedia/en/4/44/L%27Eclisse.jpg",
+            summary: {
+              [Language.PT]: "Vittoria termina um relacionamento e inicia outro com um corretor da bolsa materialista. Um retrato visualmente deslumbrante sobre a desconexão emocional na Roma contemporânea.",
+              [Language.EN]: "Vittoria ends one relationship and begins another with a materialistic stockbroker. A visually stunning portrait of emotional disconnection in contemporary Rome."
+            }
         },
         {
-            date: { [Language.PT]: "23-24 Maio", [Language.EN]: "May 23-24" },
+            date: { [Language.PT]: "2 Maio", [Language.EN]: "May 2" },
             title: "O Deserto Vermelho",
             director: "Michelangelo Antonioni",
             year: "1964",
-            image: "https://upload.wikimedia.org/wikipedia/en/2/2f/Red_Desert.jpg"
+            image: "https://upload.wikimedia.org/wikipedia/en/2/2f/Red_Desert.jpg",
+            summary: {
+              [Language.PT]: "O primeiro filme a cores de Antonioni. Giuliana, esposa de um industrial, sofre uma crise nervosa e tenta navegar numa paisagem industrial tóxica e alienante em Ravena.",
+              [Language.EN]: "Antonioni's first color film. Giuliana, the wife of an industrialist, suffers a nervous breakdown and tries to navigate a toxic and alienating industrial landscape in Ravenna."
+            }
+        },
+        {
+            date: { [Language.PT]: "8 Maio", [Language.EN]: "May 8" },
+            title: "Persona",
+            director: "Ingmar Bergman",
+            year: "1966",
+            image: "https://upload.wikimedia.org/wikipedia/en/f/f4/Persona_poster.jpg",
+            summary: {
+              [Language.PT]: "Uma enfermeira é encarregada de cuidar de uma atriz que parou de falar. Isoladas numa casa de praia, as suas identidades começam a fundir-se num thriller psicológico intenso.",
+              [Language.EN]: "A nurse is tasked with caring for an actress who has stopped speaking. Isolated in a beach house, their identities begin to merge in an intense psychological thriller."
+            }
+        },
+        {
+            date: { [Language.PT]: "9 Maio", [Language.EN]: "May 9" },
+            title: "Stalker",
+            director: "Andrei Tarkovsky",
+            year: "1979",
+            image: "https://upload.wikimedia.org/wikipedia/en/d/d5/Stalker_poster.jpg",
+            summary: {
+              [Language.PT]: "Um guia ('Stalker') lidera um escritor e um cientista através de uma área proibida e misteriosa conhecida como 'A Zona', onde se diz existir um quarto que realiza os desejos mais profundos.",
+              [Language.EN]: "A guide ('Stalker') leads a writer and a scientist through a forbidden, mysterious area known as 'The Zone', where a room is said to exist that grants one's deepest desires."
+            }
+        },
+        {
+            date: { [Language.PT]: "15 Maio", [Language.EN]: "May 15" },
+            title: "Disponível para Amar",
+            director: "Wong Kar-wai",
+            year: "2000",
+            image: "https://upload.wikimedia.org/wikipedia/en/4/45/In_the_Mood_for_Love_movie.jpg",
+            summary: {
+              [Language.PT]: "Hong Kong, 1962. Dois vizinhos descobrem que os seus cônjuges estão a ter um caso. Enquanto tentam compreender a traição, desenvolvem uma ligação profunda e contida.",
+              [Language.EN]: "Hong Kong, 1962. Two neighbors discover their spouses are having an affair. As they try to understand the betrayal, they develop a deep and restrained bond."
+            }
+        },
+        {
+            date: { [Language.PT]: "16 Maio", [Language.EN]: "May 16" },
+            title: "Mulholland Drive",
+            director: "David Lynch",
+            year: "2001",
+            image: "https://upload.wikimedia.org/wikipedia/en/0/00/Mulholland_Drive_%282001_film_poster%29.jpg",
+            summary: {
+              [Language.PT]: "Após um acidente de carro em Los Angeles, uma mulher com amnésia e uma aspirante a atriz envolvem-se numa misteriosa e surrealista procura pela verdade e identidade.",
+              [Language.EN]: "After a car accident in Los Angeles, an amnesiac woman and an aspiring actress become involved in a mysterious and surreal search for truth and identity."
+            }
+        },
+        {
+            date: { [Language.PT]: "22 Maio", [Language.EN]: "May 22" },
+            title: "Paris, Texas",
+            director: "Wim Wenders",
+            year: "1984",
+            image: "https://upload.wikimedia.org/wikipedia/en/7/76/Paris_texas_movie_poster.jpg",
+            summary: {
+              [Language.PT]: "Um homem caminha para fora do deserto sem memória dos últimos quatro anos. Ele tenta reconectar-se com o seu irmão e o seu filho jovem, partindo numa viagem para encontrar a sua esposa desaparecida.",
+              [Language.EN]: "A man walks out of the desert with no memory of the last four years. He tries to reconnect with his brother and young son, setting off on a journey to find his missing wife."
+            }
+        },
+        {
+            date: { [Language.PT]: "23 Maio", [Language.EN]: "May 23" },
+            title: "Close-Up",
+            director: "Abbas Kiarostami",
+            year: "1990",
+            image: "https://upload.wikimedia.org/wikipedia/en/6/62/Close-Up_%281990_film%29.jpg",
+            summary: {
+              [Language.PT]: "Baseado numa história real, o filme recria o julgamento de um homem que se fez passar pelo famoso realizador Mohsen Makhmalbaf, explorando a linha ténue entre cinema e realidade.",
+              [Language.EN]: "Based on a true story, the film recreates the trial of a man who impersonated famous director Mohsen Makhmalbaf, exploring the fine line between cinema and reality."
+            }
+        },
+        {
+            date: { [Language.PT]: "29 Maio", [Language.EN]: "May 29" },
+            title: "Beau Travail",
+            director: "Claire Denis",
+            year: "1999",
+            image: "https://upload.wikimedia.org/wikipedia/en/d/d2/Beau_travail_poster.jpg",
+            summary: {
+              [Language.PT]: "No Djibuti, um sargento da Legião Estrangeira desenvolve uma obsessão destrutiva por um jovem recruta. Uma meditação hipnótica sobre masculinidade, ciúme e o corpo em movimento.",
+              [Language.EN]: "In Djibouti, a Foreign Legion sergeant develops a destructive obsession with a young recruit. A hypnotic meditation on masculinity, jealousy, and the body in motion."
+            }
+        },
+        {
+            date: { [Language.PT]: "30 Maio", [Language.EN]: "May 30" },
+            title: "Os Verdes Anos",
+            director: "Paulo Rocha",
+            year: "1963",
+            image: "https://upload.wikimedia.org/wikipedia/en/6/60/The_Green_Years.jpg",
+            summary: {
+              [Language.PT]: "O filme fundador do Novo Cinema Português. Júlio, vindo da província para Lisboa, apaixona-se por Ilda. Um retrato melancólico da juventude urbana sob a opressão do Estado Novo.",
+              [Language.EN]: "The founding film of Portuguese New Wave. Júlio, coming from the countryside to Lisbon, falls for Ilda. A melancholic portrait of urban youth under the oppression of the Estado Novo regime."
+            }
         }
     ]
   },
