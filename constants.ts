@@ -522,178 +522,178 @@ export const CONTENT: ContentStructure = {
     schedule: [
         {
             date: { [Language.PT]: "10 Abril", [Language.EN]: "April 10" },
-            title: "O Espírito da Colmeia",
-            director: "Víctor Erice",
-            year: "1973",
-            image: "https://upload.wikimedia.org/wikipedia/en/7/78/The_Spirit_of_the_Beehive.jpg",
+            title: "The Fountainhead",
+            director: "King Vidor",
+            year: "1949",
+            image: "/movies/the-fountainhead.jpg",
             summary: {
-              [Language.PT]: "Numa vila isolada na Espanha de 1940, uma menina de seis anos torna-se obcecada pelo monstro de Frankenstein após ver o filme, confundindo realidade e fantasia num retrato poético da infância sob o franquismo.",
-              [Language.EN]: "In a remote Spanish village in 1940, a six-year-old girl becomes obsessed with Frankenstein's monster after watching the film, blurring reality and fantasy in a poetic portrait of childhood under Franco's rule."
+              [Language.PT]: "An uncompromising architect battles societal constraints. Architecture and design are integral, symbolizing creative independence and philosophical ideals about form, function, and artistic integrity.",
+              [Language.EN]: "An uncompromising architect battles societal constraints. Architecture and design are integral, symbolizing creative independence and philosophical ideals about form, function, and artistic integrity."
             }
         },
         {
             date: { [Language.PT]: "11 Abril", [Language.EN]: "April 11" },
-            title: "O Sabor do Saké",
-            director: "Yasujirō Ozu",
-            year: "1962",
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/An_Autumn_Afternoon_poster.jpg/405px-An_Autumn_Afternoon_poster.jpg",
+            title: "Columbus",
+            director: "Kogonada",
+            year: "2017",
+            image: "/movies/columbus.jpg",
             summary: {
-              [Language.PT]: "O último filme de Ozu. Um viúvo idoso decide arranjar casamento para a sua filha devota, percebendo que ao fazê-lo ficará inevitavelmente sozinho. Uma reflexão serena sobre a passagem do tempo e a solidão.",
-              [Language.EN]: "Ozu's final film. An aging widower decides to arrange a marriage for his devoted daughter, realizing that doing so will leave him inevitably alone. A serene reflection on the passage of time and loneliness."
+              [Language.PT]: "Modernist architecture shapes personal connections in Columbus, Indiana. The film explores how design influences emotion, reflection, and community, with buildings as silent witnesses to human experiences.",
+              [Language.EN]: "Modernist architecture shapes personal connections in Columbus, Indiana. The film explores how design influences emotion, reflection, and community, with buildings as silent witnesses to human experiences."
             }
         },
         {
             date: { [Language.PT]: "17 Abril", [Language.EN]: "April 17" },
-            title: "A Prisioneira",
-            director: "Chantal Akerman",
-            year: "2000",
-            image: "https://m.media-amazon.com/images/M/MV5BMjE5NTM0NTk5M15BMl5BanBnXkFtZTcwMzQzMzUyMQ@@._V1_.jpg",
+            title: "Architecture 101",
+            director: "Lee Yong-ju",
+            year: "2012",
+            image: "/movies/architecture-101.jpg",
             summary: {
-              [Language.PT]: "Livremente inspirado em Proust, o filme explora a obsessão amorosa e o ciúme doentio de Simon por Ariane, transformando o apartamento parisiense numa prisão de olhares e segredos.",
-              [Language.EN]: "Loosely inspired by Proust, the film explores Simon's obsessive love and sickly jealousy for Ariane, transforming their Parisian apartment into a prison of gazes and secrets."
+              [Language.PT]: "First love and memories are intertwined with home building and revisiting architectural spaces from the past. Explores how architecture shapes life stories and personal growth.",
+              [Language.EN]: "First love and memories are intertwined with home building and revisiting architectural spaces from the past. Explores how architecture shapes life stories and personal growth."
             }
         },
         {
             date: { [Language.PT]: "18 Abril", [Language.EN]: "April 18" },
-            title: "O Desprezo",
-            director: "Jean-Luc Godard",
-            year: "1963",
-            image: "https://upload.wikimedia.org/wikipedia/en/3/38/Le_mepris_poster.jpg",
+            title: "Sidewalls",
+            director: "Gustavo Taretto",
+            year: "2011",
+            image: "/movies/sidewalls.jpg",
             summary: {
-              [Language.PT]: "Durante a rodagem de uma adaptação da Odisseia em Capri, o casamento de um guionista e uma datilógrafa desmorona-se à medida que a arte, o comércio e o desamor colidem sob o sol do Mediterrâneo.",
-              [Language.EN]: "During the filming of an adaptation of The Odyssey in Capri, the marriage between a screenwriter and a typist disintegrates as art, commerce, and heartbreak collide under the Mediterranean sun."
+              [Language.PT]: "Buenos Aires’ urban fabric—buildings, voids, and “sidewalls”—reflects isolation and connection. Architecture is both stage and metaphor, showing how city design influences relationships and solitude.",
+              [Language.EN]: "Buenos Aires’ urban fabric—buildings, voids, and “sidewalls”—reflects isolation and connection. Architecture is both stage and metaphor, showing how city design influences relationships and solitude."
             }
         },
         {
             date: { [Language.PT]: "24 Abril", [Language.EN]: "April 24" },
-            title: "A Aventura",
-            director: "Michelangelo Antonioni",
-            year: "1960",
-            image: "https://upload.wikimedia.org/wikipedia/en/8/8a/L%27Avventura_movie_poster.jpg",
+            title: "Dark City",
+            director: "Alex Proyas",
+            year: "1998",
+            image: "/movies/dark-city.jpg",
             summary: {
-              [Language.PT]: "Durante um cruzeiro nas Ilhas Eólias, uma mulher desaparece misteriosamente. O seu namorado e a sua melhor amiga iniciam uma busca que se transforma num estudo sobre o vazio existencial e a alienação.",
-              [Language.EN]: "During a cruise in the Aeolian Islands, a woman mysteriously disappears. Her boyfriend and best friend begin a search that transforms into a study of existential emptiness and alienation."
+              [Language.PT]: "A nightmarish city with shifting architecture becomes a character itself. Urban design reflects psychological states, transforming spaces as the protagonist uncovers reality and identity.",
+              [Language.EN]: "A nightmarish city with shifting architecture becomes a character itself. Urban design reflects psychological states, transforming spaces as the protagonist uncovers reality and identity."
             }
         },
         {
             date: { [Language.PT]: "25 Abril", [Language.EN]: "April 25" },
-            title: "A Noite",
-            director: "Michelangelo Antonioni",
-            year: "1961",
-            image: "https://upload.wikimedia.org/wikipedia/en/0/0c/La_Notte_poster.jpg",
+            title: "High-Rise",
+            director: "Ben Wheatley",
+            year: "2015",
+            image: "/movies/high-rise.jpg",
             summary: {
-              [Language.PT]: "Um dia na vida de um casal em crise em Milão. Entre visitas a hospitais, festas literárias e deambuladas noturnas, confrontam o fim do amor e a incomunicabilidade da vida moderna.",
-              [Language.EN]: "A day in the life of a couple in crisis in Milan. Between hospital visits, literary parties, and night wanderings, they confront the end of love and the incommunicability of modern life."
+              [Language.PT]: "A residential tower’s architecture drives class conflict, community breakdown, and chaos. Building design is central, magnifying social dynamics and the psychological effects of vertical urban living.",
+              [Language.EN]: "A residential tower’s architecture drives class conflict, community breakdown, and chaos. Building design is central, magnifying social dynamics and the psychological effects of vertical urban living."
             }
         },
         {
             date: { [Language.PT]: "1 Maio", [Language.EN]: "May 1" },
-            title: "O Eclipse",
-            director: "Michelangelo Antonioni",
-            year: "1962",
-            image: "https://upload.wikimedia.org/wikipedia/en/4/44/L%27Eclisse.jpg",
+            title: "The Brutalist",
+            director: "Brady Corbet",
+            year: "2024",
+            image: "/movies/the-brutalist.jpg",
             summary: {
-              [Language.PT]: "Vittoria termina um relacionamento e inicia outro com um corretor da bolsa materialista. Um retrato visualmente deslumbrante sobre a desconexão emocional na Roma contemporânea.",
-              [Language.EN]: "Vittoria ends one relationship and begins another with a materialistic stockbroker. A visually stunning portrait of emotional disconnection in contemporary Rome."
+              [Language.PT]: "Postwar brutalist architecture and an architect's life are deeply connected. Focuses on how design, trauma, and personal identity are manifested in stark, monumental forms.",
+              [Language.EN]: "Postwar brutalist architecture and an architect's life are deeply connected. Focuses on how design, trauma, and personal identity are manifested in stark, monumental forms."
             }
         },
         {
             date: { [Language.PT]: "2 Maio", [Language.EN]: "May 2" },
-            title: "O Deserto Vermelho",
-            director: "Michelangelo Antonioni",
-            year: "1964",
-            image: "https://upload.wikimedia.org/wikipedia/en/2/2f/Red_Desert.jpg",
+            title: "The Man Next Door",
+            director: "Mariano Cohn, Gastón Duprat",
+            year: "2010",
+            image: "/movies/the-man-next-door.jpg",
             summary: {
-              [Language.PT]: "O primeiro filme a cores de Antonioni. Giuliana, esposa de um industrial, sofre uma crise nervosa e tenta navegar numa paisagem industrial tóxica e alienante em Ravena.",
-              [Language.EN]: "Antonioni's first color film. Giuliana, the wife of an industrialist, suffers a nervous breakdown and tries to navigate a toxic and alienating industrial landscape in Ravenna."
+              [Language.PT]: "Neighbourhood tensions escalate due to architectural elements—walls and open spaces—showing how home design and urban boundaries mediate conflict and relationships in modern living.",
+              [Language.EN]: "Neighbourhood tensions escalate due to architectural elements—walls and open spaces—showing how home design and urban boundaries mediate conflict and relationships in modern living."
             }
         },
         {
             date: { [Language.PT]: "8 Maio", [Language.EN]: "May 8" },
-            title: "Persona",
-            director: "Ingmar Bergman",
-            year: "1966",
-            image: "https://upload.wikimedia.org/wikipedia/en/f/f4/Persona_poster.jpg",
+            title: "Playtime",
+            director: "Jacques Tati",
+            year: "1967",
+            image: "/movies/playtime.jpg",
             summary: {
-              [Language.PT]: "Uma enfermeira é encarregada de cuidar de uma atriz que parou de falar. Isoladas numa casa de praia, as suas identidades começam a fundir-se num thriller psicológico intenso.",
-              [Language.EN]: "A nurse is tasked with caring for an actress who has stopped speaking. Isolated in a beach house, their identities begin to merge in an intense psychological thriller."
+              [Language.PT]: "In a modernist city, architecture and design shape how people interact with urban spaces. The film humorously explores the alienation and navigation of highly designed environments.",
+              [Language.EN]: "In a modernist city, architecture and design shape how people interact with urban spaces. The film humorously explores the alienation and navigation of highly designed environments."
             }
         },
         {
             date: { [Language.PT]: "9 Maio", [Language.EN]: "May 9" },
-            title: "Stalker",
-            director: "Andrei Tarkovsky",
-            year: "1979",
-            image: "https://upload.wikimedia.org/wikipedia/en/d/d5/Stalker_poster.jpg",
+            title: "Koyaanisqatsi",
+            director: "Godfrey Reggio",
+            year: "1982",
+            image: "/movies/koyaanisqatsi.jpg",
             summary: {
-              [Language.PT]: "Um guia ('Stalker') lidera um escritor e um cientista através de uma área proibida e misteriosa conhecida como 'A Zona', onde se diz existir um quarto que realiza os desejos mais profundos.",
-              [Language.EN]: "A guide ('Stalker') leads a writer and a scientist through a forbidden, mysterious area known as 'The Zone', where a room is said to exist that grants one's deepest desires."
+              [Language.PT]: "Abstract documentary shows landscapes and urban environments. Architecture and city planning illustrate the imbalance between nature and artificial design, questioning technology’s impact on human life.",
+              [Language.EN]: "Abstract documentary shows landscapes and urban environments. Architecture and city planning illustrate the imbalance between nature and artificial design, questioning technology’s impact on human life."
             }
         },
         {
             date: { [Language.PT]: "15 Maio", [Language.EN]: "May 15" },
-            title: "Disponível para Amar",
-            director: "Wong Kar-wai",
-            year: "2000",
-            image: "https://upload.wikimedia.org/wikipedia/en/4/45/In_the_Mood_for_Love_movie.jpg",
+            title: "Metropolis",
+            director: "Fritz Lang",
+            year: "1927",
+            image: "/movies/metropolis.jpg",
             summary: {
-              [Language.PT]: "Hong Kong, 1962. Dois vizinhos descobrem que os seus cônjuges estão a ter um caso. Enquanto tentam compreender a traição, desenvolvem uma ligação profunda e contida.",
-              [Language.EN]: "Hong Kong, 1962. Two neighbors discover their spouses are having an affair. As they try to understand the betrayal, they develop a deep and restrained bond."
+              [Language.PT]: "A futuristic city’s architecture symbolizes power, class division, and imagination. Design embodies societal spectacle and mechanization, impacting personal destiny in a vertically stratified world.",
+              [Language.EN]: "A futuristic city’s architecture symbolizes power, class division, and imagination. Design embodies societal spectacle and mechanization, impacting personal destiny in a vertically stratified world."
             }
         },
         {
             date: { [Language.PT]: "16 Maio", [Language.EN]: "May 16" },
-            title: "Mulholland Drive",
-            director: "David Lynch",
-            year: "2001",
-            image: "https://upload.wikimedia.org/wikipedia/en/0/00/Mulholland_Drive_%282001_film_poster%29.jpg",
+            title: "The Towering Inferno",
+            director: "John Guillermin",
+            year: "1974",
+            image: "/movies/the-towering-inferno.jpg",
             summary: {
-              [Language.PT]: "Após um acidente de carro em Los Angeles, uma mulher com amnésia e uma aspirante a atriz envolvem-se numa misteriosa e surrealista procura pela verdade e identidade.",
-              [Language.EN]: "After a car accident in Los Angeles, an amnesiac woman and an aspiring actress become involved in a mysterious and surreal search for truth and identity."
+              [Language.PT]: "Disaster strikes a skyscraper, with architecture central to survival and storytelling. Building design magnifies drama, making the structure itself a protagonist in the unfolding tragedy.",
+              [Language.EN]: "Disaster strikes a skyscraper, with architecture central to survival and storytelling. Building design magnifies drama, making the structure itself a protagonist in the unfolding tragedy."
             }
         },
         {
             date: { [Language.PT]: "22 Maio", [Language.EN]: "May 22" },
-            title: "Paris, Texas",
-            director: "Wim Wenders",
-            year: "1984",
-            image: "https://upload.wikimedia.org/wikipedia/en/7/76/Paris_texas_movie_poster.jpg",
+            title: "Life as a House",
+            director: "Irwin Winkler",
+            year: "2001",
+            image: "/movies/life-as-a-house.jpg",
             summary: {
-              [Language.PT]: "Um homem caminha para fora do deserto sem memória dos últimos quatro anos. Ele tenta reconectar-se com o seu irmão e o seu filho jovem, partindo numa viagem para encontrar a sua esposa desaparecida.",
-              [Language.EN]: "A man walks out of the desert with no memory of the last four years. He tries to reconnect with his brother and young son, setting off on a journey to find his missing wife."
+              [Language.PT]: "Building a home represents transformation, healing, and connection. Architecture becomes a metaphor for personal change, with emotional journeys intertwined with the act of designing spaces.",
+              [Language.EN]: "Building a home represents transformation, healing, and connection. Architecture becomes a metaphor for personal change, with emotional journeys intertwined with the act of designing spaces."
             }
         },
         {
             date: { [Language.PT]: "23 Maio", [Language.EN]: "May 23" },
-            title: "Close-Up",
-            director: "Abbas Kiarostami",
-            year: "1990",
-            image: "https://upload.wikimedia.org/wikipedia/en/6/62/Close-Up_%281990_film%29.jpg",
+            title: "The Architect",
+            director: "Jonathan Parker",
+            year: "2016",
+            image: "/movies/the-architect.jpg",
             summary: {
-              [Language.PT]: "Baseado numa história real, o filme recria o julgamento de um homem que se fez passar pelo famoso realizador Mohsen Makhmalbaf, explorando a linha ténue entre cinema e realidade.",
-              [Language.EN]: "Based on a true story, the film recreates the trial of a man who impersonated famous director Mohsen Makhmalbaf, exploring the fine line between cinema and reality."
+              [Language.PT]: "An architect’s choices impact multiple lives, examining how design influences personal relationships and community. Highlights ethical questions in architecture, blending character study with built environment.",
+              [Language.EN]: "An architect’s choices impact multiple lives, examining how design influences personal relationships and community. Highlights ethical questions in architecture, blending character study with built environment."
             }
         },
         {
             date: { [Language.PT]: "29 Maio", [Language.EN]: "May 29" },
-            title: "Beau Travail",
-            director: "Claire Denis",
-            year: "1999",
-            image: "https://upload.wikimedia.org/wikipedia/en/d/d2/Beau_travail_poster.jpg",
+            title: "The Black Cat",
+            director: "Edgar G. Ulmer",
+            year: "1934",
+            image: "/movies/the-black-cat.jpg",
             summary: {
-              [Language.PT]: "No Djibuti, um sargento da Legião Estrangeira desenvolve uma obsessão destrutiva por um jovem recruta. Uma meditação hipnótica sobre masculinidade, ciúme e o corpo em movimento.",
-              [Language.EN]: "In Djibouti, a Foreign Legion sergeant develops a destructive obsession with a young recruit. A hypnotic meditation on masculinity, jealousy, and the body in motion."
+              [Language.PT]: "A horror tale set in a house whose peculiar architecture becomes central. The building’s design creates psychological unease, turning spaces into active agents of dread.",
+              [Language.EN]: "A horror tale set in a house whose peculiar architecture becomes central. The building’s design creates psychological unease, turning spaces into active agents of dread."
             }
         },
         {
             date: { [Language.PT]: "30 Maio", [Language.EN]: "May 30" },
-            title: "Os Verdes Anos",
-            director: "Paulo Rocha",
-            year: "1963",
-            image: "https://upload.wikimedia.org/wikipedia/en/6/60/The_Green_Years.jpg",
+            title: "Strangers When We Meet",
+            director: "Richard Quine",
+            year: "1960",
+            image: "/movies/strangers-when-we-meet.jpg",
             summary: {
-              [Language.PT]: "O filme fundador do Novo Cinema Português. Júlio, vindo da província para Lisboa, apaixona-se por Ilda. Um retrato melancólico da juventude urbana sob a opressão do Estado Novo.",
-              [Language.EN]: "The founding film of Portuguese New Wave. Júlio, coming from the countryside to Lisbon, falls for Ilda. A melancholic portrait of urban youth under the oppression of the Estado Novo regime."
+              [Language.PT]: "An architect’s project intertwines with his personal life, with house design reflecting emotional complexity. Architecture is both setting and symbol for the story’s intricate relationships.",
+              [Language.EN]: "An architect’s project intertwines with his personal life, with house design reflecting emotional complexity. Architecture is both setting and symbol for the story’s intricate relationships."
             }
         }
     ]
