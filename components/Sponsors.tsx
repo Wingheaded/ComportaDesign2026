@@ -49,7 +49,7 @@ const Sponsors: React.FC<SponsorsProps> = ({ language }) => {
   return (
     <>
       <section className="bg-white py-20 md:py-24">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center max-w-7xl">
           <h2 className="text-sm font-medium tracking-wider text-soft-black/60 uppercase mb-10">
             {CONTENT.sponsors.main[language]}
           </h2>
@@ -59,7 +59,7 @@ const Sponsors: React.FC<SponsorsProps> = ({ language }) => {
         </div>
       </section>
       <section className="bg-light-sand py-20 md:py-24">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center max-w-7xl">
           <h2 className="text-sm font-medium tracking-wider text-soft-black/60 uppercase mb-10">
             {CONTENT.sponsors.partners[language]}
           </h2>

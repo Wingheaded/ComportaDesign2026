@@ -8,6 +8,7 @@ import Exhibitions from './components/Exhibitions';
 import Cinema from './components/Cinema';
 import Venue from './components/Venue';
 import Sponsors from './components/Sponsors';
+import Contact from './components/Contact';
 import Organization from './components/Organization';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
@@ -26,6 +27,7 @@ const App: React.FC = () => {
         <Cinema language={language} />
         <Venue language={language} />
         <Sponsors language={language} />
+        <Contact language={language} />
         <Organization language={language} />
       </main>
       <Footer language={language} />

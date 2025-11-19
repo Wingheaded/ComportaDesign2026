@@ -9,8 +9,8 @@ interface CinemaProps {
 
 const Cinema: React.FC<CinemaProps> = ({ language }) => {
   return (
-    <section className="bg-light-sand py-20 md:py-32">
-      <div className="container mx-auto px-6">
+    <section id="cinema" className="bg-light-sand py-20 md:py-32 scroll-mt-28">
+      <div className="container mx-auto px-6 max-w-7xl">
         <div className="max-w-3xl mb-12 md:mb-16">
           <h2 className="font-grotesk text-3xl md:text-4xl font-medium">
             {CONTENT.cinema.title[language]}

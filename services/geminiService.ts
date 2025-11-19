@@ -1,13 +1,30 @@
+
 import { GoogleGenAI } from "@google/genai";
 import type { Message } from '../types';
 
-const API_KEY = process.env.API_KEY;
+// robustly get API key without crashing
+const getApiKey = () => {
+  try {
+    // Check if process is defined globally
+    if (typeof process !== 'undefined' && process && process.env) {
+      return process.env.API_KEY;
+    }
+    // Fallback for Vite/other bundlers that might inject import.meta.env
+    // @ts-ignore
+    if (typeof import.meta !== 'undefined' && import.meta.env) {
+      // @ts-ignore
+      return import.meta.env.VITE_API_KEY || import.meta.env.API_KEY;
+    }
+  } catch (e) {
+    console.warn("Environment variable access failed", e);
+  }
+  return undefined;
+};
+
+const API_KEY = getApiKey();
 
 if (!API_KEY) {
-  // In a real production app, you might want to disable the chat feature
-  // or show a message to the user if the key is not available.
-  // For this example, we throw an error during development.
-  console.error("Gemini API key not found. Chatbot will not function.");
+  console.warn("Gemini API key not found. Chatbot will not function.");
 }
 
 // Initialize with a check for API_KEY to avoid crashes if it's missing.
@@ -17,7 +34,6 @@ const transformHistoryForGemini = (history: Message[]) => {
   // We remove the very first message which is the initial greeting from the bot
   // as it doesn't need to be part of the conversational history sent to the model.
   return history.slice(1).map(msg => ({
-    // FIX: The user role for the Gemini API should be 'user', not 'user's'.
     role: msg.sender === 'user' ? 'user' : 'model',
     parts: [{ text: msg.text }]
   }));

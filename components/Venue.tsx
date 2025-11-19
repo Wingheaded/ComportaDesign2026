@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Language } from '../types';
 import { CONTENT } from '../constants';
@@ -8,8 +9,8 @@ interface VenueProps {
 
 const Venue: React.FC<VenueProps> = ({ language }) => {
   return (
-    <section className="bg-white py-20 md:py-32">
-      <div className="container mx-auto px-6">
+    <section id="venue" className="bg-white py-20 md:py-32 scroll-mt-28">
+      <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-grotesk text-3xl md:text-4xl font-medium mb-6">

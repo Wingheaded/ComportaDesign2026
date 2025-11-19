@@ -9,8 +9,8 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ language }) => {
   return (
-    <section className="bg-light-sand py-20 md:py-32">
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8">
+    <section id="about" className="bg-light-sand py-20 md:py-32 scroll-mt-28">
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 max-w-7xl">
         <div className="md:col-span-4">
           <h2 className="font-grotesk text-2xl md:text-3xl font-medium sticky top-24">
             {CONTENT.about.title[language]}

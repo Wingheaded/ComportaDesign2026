@@ -11,12 +11,27 @@ type ComplexParagraph = {
     [key in Language]: (string | { text: string; url: string })[];
   };
 };
-type Paragraph = LocalizedString | ComplexParagraph;
+export type Paragraph = LocalizedString | ComplexParagraph;
 
-interface Exhibitor {
+export interface ExhibitorDetails {
+  description: Paragraph[];
+  images: {
+    url: string;
+    caption?: string;
+  }[];
+  links: {
+    website?: string;
+    instagram?: string;
+    catalogUrl?: string;
+    email?: string;
+  };
+}
+
+export interface Exhibitor {
   date: LocalizedString;
   name: string;
   description?: LocalizedString;
+  details?: ExhibitorDetails;
 }
 
 interface Movie {
@@ -30,6 +45,14 @@ interface Movie {
 interface ContentStructure {
   header: {
     schedule: LocalizedString;
+  };
+  navigation: {
+    home: LocalizedString;
+    about: LocalizedString;
+    programme: LocalizedString;
+    cinema: LocalizedString;
+    location: LocalizedString;
+    contact: LocalizedString;
   };
   hero: {
     title: LocalizedString;
@@ -47,6 +70,11 @@ interface ContentStructure {
     title: LocalizedString;
     intro: LocalizedString;
     schedule: Exhibitor[];
+    modal: {
+      close: LocalizedString;
+      visitWebsite: LocalizedString;
+      downloadCatalog: LocalizedString;
+    }
   };
   cinema: {
     title: LocalizedString;
@@ -63,6 +91,14 @@ interface ContentStructure {
   sponsors: {
     main: LocalizedString;
     partners: LocalizedString;
+  };
+  contactSection: {
+    title: LocalizedString;
+    nameLabel: LocalizedString;
+    emailLabel: LocalizedString;
+    messageLabel: LocalizedString;
+    submitButton: LocalizedString;
+    successMessage: LocalizedString;
   };
   organization: {
     organizedBy: LocalizedString;
@@ -85,6 +121,32 @@ export const CONTENT: ContentStructure = {
     schedule: {
       [Language.PT]: "Agenda a tua visita",
       [Language.EN]: "Schedule your visit",
+    },
+  },
+  navigation: {
+    home: {
+      [Language.PT]: "Início",
+      [Language.EN]: "Home",
+    },
+    about: {
+      [Language.PT]: "Sobre",
+      [Language.EN]: "About",
+    },
+    programme: {
+      [Language.PT]: "Programa",
+      [Language.EN]: "Programme",
+    },
+    cinema: {
+      [Language.PT]: "Cinema de Autor",
+      [Language.EN]: "Author Cinema",
+    },
+    location: {
+      [Language.PT]: "Local",
+      [Language.EN]: "Location",
+    },
+    contact: {
+      [Language.PT]: "Contacto",
+      [Language.EN]: "Contact",
     },
   },
   hero: {
@@ -186,36 +248,258 @@ export const CONTENT: ContentStructure = {
       [Language.EN]: "Exhibitions — Continuous Cycle",
     },
     intro: {
-      [Language.PT]: "Apresentando uma seleção de obras de designers estabelecidos e emergentes que desafiam os limites da forma, função e materialidade.",
-      [Language.EN]: "Featuring a curated selection of works from established and emerging designers who push the boundaries of form, function, and materiality.",
+      [Language.PT]: "Uma programação dinâmica que traz o melhor do design nacional e internacional.",
+      [Language.EN]: "A dynamic program bringing the best of national and international design.",
     },
     schedule: [
       {
-        date: { [Language.PT]: '1-8 Abril', [Language.EN]: '1-8 April' },
-        name: 'thilburg',
+        date: {
+          [Language.PT]: "1-8 Abril",
+          [Language.EN]: "April 1-8",
+        },
+        name: "THILBURG",
+        description: {
+          [Language.PT]: "Home ware feito à mão em Portugal",
+          [Language.EN]: "Handmade homeware from Portugal",
+        },
+        details: {
+            description: [
+                {
+                    [Language.PT]: "Thilburg | Home ware feito à mão em Portugal",
+                    [Language.EN]: "Thilburg | Handmade homeware from Portugal"
+                },
+                {
+                    [Language.PT]: "Thilburg é uma marca original de acessórios para casa, fundada em Portugal em 2024 pelo designer Klaas Van Tilburgh. Apresentando uma coleção meticulosamente selecionada, Thilburg propõe uma fusão única entre luxo discreto e design minimalista. Cada peça é pensada para valorizar a essência da elegância discreta, combinando qualidade, simplicidade e tradição artesanal portuguesa.",
+                    [Language.EN]: "Thilburg is an original home accessories brand, founded in Portugal in 2024 by designer Klaas Van Tilburgh. Presenting a meticulously selected collection, Thilburg proposes a unique fusion between discreet luxury and minimalist design. Each piece is designed to value the essence of discreet elegance, combining quality, simplicity, and Portuguese artisanal tradition."
+                },
+                {
+                    [Language.PT]: "Nossa primeira coleção, “More or Less”, foi lançada durante a Lisbon Design Week 2025, trazendo objetos decorativos atemporais e reinventados, feitos para espaços onde a sofisticação se expressa em elementos de forma e matéria.",
+                    [Language.EN]: "Our first collection, “More or Less”, was launched during Lisbon Design Week 2025, bringing timeless and reinvented decorative objects, made for spaces where sophistication expresses itself in elements of form and matter."
+                }
+            ],
+            images: [
+                {
+                    url: "https://static.wixstatic.com/media/981362_6c5471d4d6f745188abaefb460979d46~mv2.jpg/v1/crop/x_0,y_404,w_1036,h_1421/fill/w_298,h_403,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/e1b79f6f-77a9-4493-9331-d851f3538add%202_e.jpg",
+                },
+                {
+                    url: "https://static.wixstatic.com/media/981362_4cf8271da92c434881cbce237f29468e~mv2.jpg/v1/crop/x_0,y_1004,w_4016,h_5006/fill/w_298,h_358,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/981362_4cf8271da92c434881cbce237f29468e~mv2.jpg",
+                }
+            ],
+            links: {
+                website: "https://www.thilburg.com/",
+                catalogUrl: "https://www.thilburg.com/pt/_files/ugd/981362_a20df2eb652045039388fb4edaa499ad.pdf",
+            }
+        }
       },
       {
-        date: { [Language.PT]: '9-16 Abril', [Language.EN]: '9-16 April' },
-        name: 'ASSOCIAÇÃO PASSAR AO FUTURO',
+        date: {
+          [Language.PT]: "9-16 Abril",
+          [Language.EN]: "April 9-16",
+        },
+        name: "ASSO. PASSA AO FUTURO",
+        description: {
+          [Language.PT]: "Património Artesanal Português",
+          [Language.EN]: "Portuguese Artisanal Heritage",
+        },
+        details: {
+          description: [
+            {
+              [Language.PT]: "Passa Ao Futuro | Património Artesanal Português",
+              [Language.EN]: "Passa Ao Futuro | Portuguese Artisanal Heritage"
+            },
+            {
+              [Language.PT]: "A Passa Ao Futuro é uma organização cultural sem fins lucrativos dedicada à preservação, ativação e celebração do artesanato tradicional português. Fundada para dar continuidade ao saber-fazer dos artesãos nacionais, a iniciativa documenta técnicas ancestrais, promove residências e projetos colaborativos entre artesãos, designers e arquitetos, e desenvolve programas educativos que visam formar novas gerações e estimular a inovação responsável.",
+              [Language.EN]: "Passa Ao Futuro is a non-profit cultural organization dedicated to the preservation, activation, and celebration of traditional Portuguese craftsmanship. Founded to sustain the know-how of national artisans, the initiative documents ancestral techniques, promotes residencies and collaborative projects between artisans, designers, and architects, and develops educational programs aimed at training new generations and stimulating responsible innovation."
+            },
+            {
+              [Language.PT]: "Com uma abordagem que valoriza a sustentabilidade ambiental, social e económica, Passa Ao Futuro integra princípios criativos e colaborativos, conectando tradição à contemporaneidade para gerar impacto positivo e sistemas de futuro.",
+              [Language.EN]: "With an approach that values environmental, social, and economic sustainability, Passa Ao Futuro integrates creative and collaborative principles, connecting tradition to contemporaneity to generate positive impact and future systems."
+            },
+            {
+              [Language.PT]: "A missão é criar pontes entre o conhecimento tradicional e o design moderno, promovendo peças e experiências que elevam a herança artesanal portuguesa, adaptando-a aos novos tempos e necessidades. A filosofia da organização baseia-se na colaboração, respeito pela identidade local e na procura constante pela excelência, simplicidade e autenticidade.",
+              [Language.EN]: "The mission is to build bridges between traditional knowledge and modern design, promoting pieces and experiences that elevate Portuguese artisanal heritage, adapting it to new times and needs. The organization's philosophy is based on collaboration, respect for local identity, and the constant search for excellence, simplicity, and authenticity."
+            }
+          ],
+          images: [
+            {
+              url: "https://images.squarespace-cdn.com/content/v1/5968bdd6b3db2b15fd5dfb4d/7cf8dfde-fdc0-486e-8f92-0ec1c555cb77/PT_Residency+01_Junco_Sam+%26+ToinoAbel_Product+Photos_Passa+Ao+Futuro+%C2%A9+Nuno+Henriques_02.jpg?format=750w"
+            },
+            {
+              url: "https://images.squarespace-cdn.com/content/v1/5968bdd6b3db2b15fd5dfb4d/1727882973922-ZRG9A3GA7AJ5ZW3X40Z9/PT_Residency03_Palm_Product_Joana%26Sonia-7.jpg?format=500w"
+            }
+          ],
+          links: {
+            website: "https://www.passaaofuturo.com/",
+            catalogUrl: "https://www.passaaofuturo.com/products-catalogue-catlogo"
+          }
+        }
       },
       {
-        date: { [Language.PT]: '17-30 Abril', [Language.EN]: '17-30 April' },
-        name: 'POOLINS',
+        date: {
+          [Language.PT]: "17-30 Abril",
+          [Language.EN]: "April 17-30",
+        },
+        name: "POOLINS",
+        description: {
+          [Language.PT]: "Piscinas Ecológicas e Exterior",
+          [Language.EN]: "Eco-friendly Pools & Outdoor",
+        },
+        details: {
+          description: [
+            {
+              [Language.PT]: "Poolins | Cultura da Água e Design de Exterior",
+              [Language.EN]: "Poolins | Water Culture & Outdoor Design"
+            },
+            {
+              [Language.PT]: "A Poolins é uma marca espanhola inovadora e premiada que está a redefinir a indústria das piscinas com as suas piscinas ecológicas, de montagem rápida e personalizáveis, e produtos de exterior. Cada projeto Poolins personifica a Cultura da Água — responsabilidade para com a natureza aliada ao design moderno.",
+              [Language.EN]: "Poolins is an innovative, award-winning Spanish brand redefining the pool industry with its eco-friendly, fast-assembly, customizable pools and outdoor products. Every Poolins project embodies Water Culture—responsibility to nature blended with modern design."
+            },
+            {
+              [Language.PT]: "A Poolins destaca-se pela eficiência, sustentabilidade, apelo estético e envolvimento comunitário, tornando-se o parceiro ideal para clientes que procuram soluções de exterior inteligentes e responsáveis.",
+              [Language.EN]: "Poolins stands out in efficiency, sustainability, aesthetic appeal, and community engagement, making it an ideal partner for clients seeking smart, responsible outdoor solutions."
+            }
+          ],
+          images: [
+            {
+              url: "https://poolins.com/wp-content/uploads/2025/02/poolins-jets-foto-1024x768.jpg"
+            },
+            {
+              url: "https://poolins.com/wp-content/uploads/2025/04/desbordante3-1024x768.jpg"
+            }
+          ],
+          links: {
+            website: "https://poolins.com/en/poolins-en/",
+            catalogUrl: "https://poolins.com/en/downloads/"
+          }
+        }
       },
       {
-        date: { [Language.PT]: '1-8 Maio', [Language.EN]: '1-8 May' },
-        name: 'POOLINS\nARQUITETO\nMANUEL AIRES MATEUS',
+        date: {
+          [Language.PT]: "1-8 Maio",
+          [Language.EN]: "May 1-8",
+        },
+        name: "ARQUITETO\nMANUEL AIRES MATEUS",
+        description: {
+          [Language.PT]: "Arquitetura",
+          [Language.EN]: "Architecture",
+        },
+        details: {
+          description: [
+            {
+              [Language.PT]: "Manuel Aires Mateus | Arquitetura que valoriza luz e simplicidade",
+              [Language.EN]: "Manuel Aires Mateus | Architecture that values light and simplicity"
+            },
+            {
+              [Language.PT]: "Manuel Aires Mateus é um dos mais distintos arquitetos portugueses contemporâneos, nascido em Lisboa em 1963 e fundador do atelier Aires Mateus & Associados. Suas obras, premiadas e reconhecidas internacionalmente, elevam a arquitetura nacional pela busca constante do rigor geométrico, pela valorização da luz natural e pela simplicidade formal, preservando sempre a essência do traço português.",
+              [Language.EN]: "Manuel Aires Mateus is one of the most distinguished contemporary Portuguese architects, born in Lisbon in 1963 and founder of the studio Aires Mateus & Associados. His works, awarded and recognized internationally, elevate national architecture through the constant search for geometric rigor, the appreciation of natural light, and formal simplicity, always preserving the essence of the Portuguese trace."
+            },
+            {
+              [Language.PT]: "Aires Mateus propõe projetos residenciais e culturais onde cada elemento — seja uma piscina escultórica ou uma habitação minimalista — interage harmoniosamente com a paisagem e prioriza o convívio, a contemplação e a atenção minuciosa ao detalhe construtivo. Seu portfólio inclui referências como Pa.te.os, Casa em Melides e Casa em Barreiro, onde arquitetura e natureza dialogam numa linguagem sofisticada e atemporal.",
+              [Language.EN]: "Aires Mateus proposes residential and cultural projects where each element—whether a sculptural pool or a minimalist dwelling—interacts harmoniously with the landscape and prioritizes social interaction, contemplation, and meticulous attention to constructive detail. His portfolio includes references such as Pa.te.os, House in Melides, and House in Barreiro, where architecture and nature dialogue in a sophisticated and timeless language."
+            }
+          ],
+          images: [
+            { url: "https://estliving.com/wp-content/uploads/2023/01/est-living-manuel-aires-mateaus-pateos-1.jpeg" },
+            { url: "https://arquitecturaviva.com/assets/uploads/obras/55961/av_medium__av_261103.webp?h=1d49c28d" }
+          ],
+          links: {
+            website: "https://www.airesmateus.com/"
+          }
+        }
       },
       {
-        date: { [Language.PT]: '9-16 Maio', [Language.EN]: '9-16 May' },
-        name: 'MOR DESIGN',
+        date: {
+          [Language.PT]: "9-16 Maio",
+          [Language.EN]: "May 9-16",
+        },
+        name: "MORDESIGN",
+        description: {
+          [Language.PT]: "Design Sustentável",
+          [Language.EN]: "Sustainable Design",
+        },
+        details: {
+          description: [
+            {
+              [Language.PT]: "MOR Design | Menos do mesmo, mais design",
+              [Language.EN]: "MOR Design | Less of the same, more design"
+            },
+            {
+              [Language.PT]: "A MOR Design personifica o artesanato português reinterpretado para um público global, defendendo o minimalismo, materiais superiores, qualidade em pequena escala e objetos concebidos para durar gerações.",
+              [Language.EN]: "MOR Design epitomizes Portuguese craftsmanship reinterpreted for a global audience, standing for minimalism, superior materials, small-scale quality, and objects designed to last for generations."
+            },
+            {
+              [Language.PT]: "A marca é uma referência de como os métodos tradicionais e o talento internacional se unem na arte funcional, proporcionando conjuntos distintos e harmoniosos tanto para casas como para projetos.",
+              [Language.EN]: "The brand is a benchmark for how traditional methods and international talent come together in functional art, providing distinctive and harmonious sets for both homes and projects."
+            },
+            {
+              [Language.PT]: "Se procura design que importa e permanece relevante, a MOR representa “menos do mesmo, mais design” — um convite para abraçar o essencial, agora e sempre.",
+              [Language.EN]: "If you seek design that matters and stays relevant, MOR represents “less of the same, more design”—an invitation to embrace the essential, now and always."
+            }
+          ],
+          images: [
+            { url: "https://mordesign.com/cdn/shop/files/BULB_2.jpg?v=1757694027&width=500" },
+            { url: "https://mordesign.com/cdn/shop/files/DSCF0134_arranjada_4x32000_ae8b2730-543c-4e6a-b10f-737d4ff28a63.jpg?v=1761307939&width=300" }
+          ],
+          links: {
+            website: "https://mordesign.com/",
+            catalogUrl: "https://mordesign.com/collections/set-pieces-good-deals-solution"
+          }
+        }
       },
       {
-        date: { [Language.PT]: '17-31 Maio', [Language.EN]: '17-31 May' },
-        name: 'WEWOOD',
-        description: { [Language.PT]: 'PORTUGUESE JOINERY', [Language.EN]: 'PORTUGUESE JOINERY' },
-      }
+        date: {
+          [Language.PT]: "17-31 Maio",
+          [Language.EN]: "May 17-31",
+        },
+        name: "WEWOOD",
+        description: {
+          [Language.PT]: "Marcenaria Portuguesa",
+          [Language.EN]: "Portuguese Joinery",
+        },
+        details: {
+          description: [
+            {
+              [Language.PT]: "Wewood | Mobiliário de excelência e tradição portuguesa",
+              [Language.EN]: "Wewood | Excellence in Furniture and Portuguese Tradition"
+            },
+            {
+              [Language.PT]: "Wewood é uma marca de destaque no universo do mobiliário, fundada em Portugal e reconhecida internacionalmente pela sua dedicação ao design exclusivo, à tradição artesanal e à produção sustentável. Especializada na criação, manufatura e exportação de peças de mobiliário em madeira maciça, a Wewood une estética duradoura e funcionalidade, celebrando o saber-fazer português e o rigor artesanal em cada detalhe.",
+              [Language.EN]: "Wewood is a prominent brand in the furniture universe, founded in Portugal and internationally recognized for its dedication to exclusive design, artisanal tradition, and sustainable production. Specialized in the creation, manufacture, and export of solid wood furniture pieces, Wewood combines lasting aesthetics and functionality, celebrating Portuguese know-how and artisanal rigor in every detail."
+            },
+            {
+              [Language.PT]: "Inspirada pelo legado da carpintaria portuguesa, a Wewood valoriza a colaboração entre artesãos experientes e designers prestigiados, resultando em coleções que equilibram inovação e tradição. Os móveis são criados para perdurar, destacando formas intemporais, materiais nobres e acabamentos primorosos — concebidos em séries limitadas para garantir exclusividade e autenticidade.",
+              [Language.EN]: "Inspired by the legacy of Portuguese carpentry, Wewood values the collaboration between experienced artisans and prestigious designers, resulting in collections that balance innovation and tradition. The furniture is created to last, highlighting timeless forms, noble materials, and exquisite finishes—conceived in limited series to ensure exclusivity and authenticity."
+            },
+            {
+              [Language.PT]: "A filosofia da marca é pautada pela sustentabilidade, responsabilidade social e compromisso com a qualidade. Todas as peças são pensadas para ambientes onde o requinte e a utilidade convivem em harmonia, tornando-se elementos centrais de projetos residenciais e hoteleiros em diversos países.",
+              [Language.EN]: "The brand's philosophy is guided by sustainability, social responsibility, and a commitment to quality. All pieces are designed for environments where refinement and utility coexist in harmony, becoming central elements of residential and hospitality projects in various countries."
+            }
+          ],
+          images: [
+            { url: "https://images.squarespace-cdn.com/content/v1/5411b34ee4b0aa818cc870ab/2955be31-ee48-4436-84a6-84585329d0ab/Wewood%2BPARIS.png?format=500w" },
+            { url: "https://images.squarespace-cdn.com/content/v1/5411b34ee4b0aa818cc870ab/2100d879-a506-484a-aa2d-74b52db02d11/metis_wewood.jpg?format=500w" }
+          ],
+          links: {
+            website: "https://www.wewood.eu/",
+            catalogUrl: "https://www.wewood.eu/catalogue-request"
+          }
+        }
+      },
     ],
+    modal: {
+      close: {
+        [Language.PT]: "Fechar",
+        [Language.EN]: "Close",
+      },
+      visitWebsite: {
+        [Language.PT]: "Visitar Website",
+        [Language.EN]: "Visit Website",
+      },
+      downloadCatalog: {
+        [Language.PT]: "Catálogo",
+        [Language.EN]: "Catalog",
+      }
+    }
   },
   cinema: {
     title: {
@@ -223,48 +507,88 @@ export const CONTENT: ContentStructure = {
       [Language.EN]: "Author Cinema",
     },
     curator: {
-        [Language.PT]: "Curadoria de Francisco Ferreira",
-        [Language.EN]: "Curated by Francisco Ferreira",
+      [Language.PT]: "Curadoria de Francisco Ferreira",
+      [Language.EN]: "Curated by Francisco Ferreira",
     },
     intro: {
-      [Language.PT]: "Uma exploração cinematográfica do design, arquitetura e processos criativos, apresentando filmes raros e documentários instigantes.",
-      [Language.EN]: "A cinematic exploration of design, architecture, and creative processes, featuring rare films and thought-provoking documentaries.",
+      [Language.PT]: "Sextas e Sábados às 21:30. Entrada livre.",
+      [Language.EN]: "Fridays and Saturdays at 9:30 PM. Free entry.",
     },
     dates: {
-      [Language.PT]: "Sessões às sextas e sábados de Abril e Maio.",
-      [Language.EN]: "Sessions on Fridays and Saturdays in April and May.",
+      [Language.PT]: "Abril — Maio 2026",
+      [Language.EN]: "April — May 2026",
     },
     schedule: [
-      { date: { [Language.PT]: '10 ABR', [Language.EN]: 'APR 10' }, title: 'Amélie', director: 'Jean-Pierre Jeunet', year: '2001', image: 'https://upload.wikimedia.org/wikipedia/en/5/53/Amelie_poster.jpg' },
-      { date: { [Language.PT]: '11 ABR', [Language.EN]: 'APR 11' }, title: 'Parasite', director: 'Bong Joon-ho', year: '2019', image: 'https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png' },
-      { date: { [Language.PT]: '17 ABR', [Language.EN]: 'APR 17' }, title: 'The Handmaiden', director: 'Park Chan-wook', year: '2016', image: 'https://m.media-amazon.com/images/M/MV5BODYxY2Q0NDAtMWU2ZS00MjFmLWI2YzYtYTA4MWI3YmNiYzkzXkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg' },
-      { date: { [Language.PT]: '18 ABR', [Language.EN]: 'APR 18' }, title: 'In the Mood for Love', director: 'Wong Kar-wai', year: '2000', image: 'https://tse1.mm.bing.net/th/id/OIP.bPKubXm8c77D-jq1elEUfgHaLb?pid=Api' },
-      { date: { [Language.PT]: '24 ABR', [Language.EN]: 'APR 24' }, title: 'The Grand Budapest Hotel', director: 'Wes Anderson', year: '2014', image: 'https://i.ebayimg.com/images/g/ZYkAAOSwbiFZW6oA/s-l1200.jpg' },
-      { date: { [Language.PT]: '25 ABR', [Language.EN]: 'APR 25' }, title: 'Spirited Away', director: 'Hayao Miyazaki', year: '2001', image: 'https://www.iceposter.com/thumbs/MOV_1ff5f62f_b.jpg' },
-      { date: { [Language.PT]: '1 MAI', [Language.EN]: 'MAY 01' }, title: 'The Price of Desire', director: 'Mary McGuckian', year: '2015', image: 'https://upload.wikimedia.org/wikipedia/en/2/26/The_Price_of_Desire_poster.jpg' },
-      { date: { [Language.PT]: '2 MAI', [Language.EN]: 'MAY 02' }, title: 'Moriyama-San', director: 'Ila Bêka & Louise Lemoine', year: '2017', image: 'https://pics.filmaffinity.com/moriyama_san-497764354-large.jpg' },
-      { date: { [Language.PT]: '8 MAI', [Language.EN]: 'MAY 08' }, title: 'Rams', director: 'Grímur Hákonarson', year: '2015', image: 'https://m.media-amazon.com/images/M/MV5BMTY1NTI2NzUzNV5BMl5BanBnXkFtZTgwNDc5NDA2MDE%40._V1_.jpg' },
-      { date: { [Language.PT]: '9 MAI', [Language.EN]: 'MAY 09' }, title: 'Visual Acoustics', director: 'Eric Bricker', year: '2008', image: 'https://images.squarespace-cdn.com/content/v1/58d052c93e00bef537b4d9e1/1567110966069-YTWKHZ5ZPWA9Y5D4PVXE/VisualAcousticsPoster_LoRez.jpg' },
-      { date: { [Language.PT]: '15 MAI', [Language.EN]: 'MAY 15' }, title: 'The Fountainhead', director: 'King Vidor', year: '1949', image: 'https://picsum.photos/seed/fountainhead/800/1200' },
-      { date: { [Language.PT]: '16 MAI', [Language.EN]: 'MAY 16' }, title: 'Brazil', director: 'Terry Gilliam', year: '1985', image: 'https://picsum.photos/seed/brazil/800/1200' },
-      { date: { [Language.PT]: '22 MAI', [Language.EN]: 'MAY 22' }, title: 'Her', director: 'Spike Jonze', year: '2013', image: 'https://picsum.photos/seed/her/800/1200' },
-      { date: { [Language.PT]: '23 MAI', [Language.EN]: 'MAY 23' }, title: 'The Belly of an Architect', director: 'Peter Greenaway', year: '1987', image: 'https://picsum.photos/seed/bellyarchitect/800/1200' },
-      { date: { [Language.PT]: '29 MAI', [Language.EN]: 'MAY 29' }, title: 'Antonio Gaudí', director: 'Hiroshi Teshigahara', year: '1984', image: 'https://picsum.photos/seed/gaudi/800/1200' },
-      { date: { [Language.PT]: '30 MAI', [Language.EN]: 'MAY 30' }, title: 'Unfinished Spaces', director: 'Alysa Nahmias', year: '2011', image: 'https://picsum.photos/seed/unfinished/800/1200' },
+        {
+            date: { [Language.PT]: "4-5 Abril", [Language.EN]: "April 4-5" },
+            title: "O Espírito da Colmeia",
+            director: "Víctor Erice",
+            year: "1973",
+            image: "https://upload.wikimedia.org/wikipedia/en/7/78/The_Spirit_of_the_Beehive.jpg"
+        },
+        {
+            date: { [Language.PT]: "11-12 Abril", [Language.EN]: "April 11-12" },
+            title: "O Sabor do Saké",
+            director: "Yasujirō Ozu",
+            year: "1962",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/An_Autumn_Afternoon_poster.jpg/405px-An_Autumn_Afternoon_poster.jpg"
+        },
+        {
+            date: { [Language.PT]: "18-19 Abril", [Language.EN]: "April 18-19" },
+            title: "A Prisioneira",
+            director: "Chantal Akerman",
+            year: "2000",
+            image: "https://m.media-amazon.com/images/M/MV5BMjE5NTM0NTk5M15BMl5BanBnXkFtZTcwMzQzMzUyMQ@@._V1_.jpg"
+        },
+        {
+            date: { [Language.PT]: "25-26 Abril", [Language.EN]: "April 25-26" },
+            title: "O Desprezo",
+            director: "Jean-Luc Godard",
+            year: "1963",
+            image: "https://upload.wikimedia.org/wikipedia/en/3/38/Le_mepris_poster.jpg"
+        },
+        {
+            date: { [Language.PT]: "2-3 Maio", [Language.EN]: "May 2-3" },
+            title: "A Aventura",
+            director: "Michelangelo Antonioni",
+            year: "1960",
+            image: "https://upload.wikimedia.org/wikipedia/en/8/8a/L%27Avventura_movie_poster.jpg"
+        },
+        {
+            date: { [Language.PT]: "9-10 Maio", [Language.EN]: "May 9-10" },
+            title: "A Noite",
+            director: "Michelangelo Antonioni",
+            year: "1961",
+            image: "https://upload.wikimedia.org/wikipedia/en/0/0c/La_Notte_poster.jpg"
+        },
+        {
+            date: { [Language.PT]: "16-17 Maio", [Language.EN]: "May 16-17" },
+            title: "O Eclipse",
+            director: "Michelangelo Antonioni",
+            year: "1962",
+            image: "https://upload.wikimedia.org/wikipedia/en/4/44/L%27Eclisse.jpg"
+        },
+        {
+            date: { [Language.PT]: "23-24 Maio", [Language.EN]: "May 23-24" },
+            title: "O Deserto Vermelho",
+            director: "Michelangelo Antonioni",
+            year: "1964",
+            image: "https://upload.wikimedia.org/wikipedia/en/2/2f/Red_Desert.jpg"
+        }
     ]
   },
   venue: {
     title: {
-      [Language.PT]: "Casa da Cultura — O Local",
-      [Language.EN]: "Casa da Cultura — The Venue",
+      [Language.PT]: "Casa da Cultura da Comporta",
+      [Language.EN]: "Casa da Cultura da Comporta",
     },
     description: {
-      [Language.PT]: "A Casa da Cultura da Comporta serve como o centro nevrálgico do nosso evento. Um espaço histórico que combina o charme rústico com a estética moderna, proporcionando o cenário perfeito para a nossa celebração do design.",
-      [Language.EN]: "The Casa da Cultura da Comporta serves as the nerve center for our event. A historic space that blends rustic charm with modern aesthetics, providing the perfect backdrop for our celebration of design.",
+      [Language.PT]: "Localizada no centro da vila, a Casa da Cultura é um espaço de encontro e criação. Com a sua arquitetura tradicional reabilitada, oferece o cenário perfeito para o diálogo entre o património local e o design contemporâneo.",
+      [Language.EN]: "Located in the center of the village, Casa da Cultura is a space for meeting and creation. With its rehabilitated traditional architecture, it offers the perfect setting for the dialogue between local heritage and contemporary design.",
     },
     address: {
-      [Language.PT]: "Largo de São João, 7580-612 Comporta, Portugal",
-      [Language.EN]: "Largo de São João, 7580-612 Comporta, Portugal",
+      [Language.PT]: "Rua do Secador, 7580-648 Comporta",
+      [Language.EN]: "Rua do Secador, 7580-648 Comporta",
     },
   },
   sponsors: {
@@ -273,14 +597,40 @@ export const CONTENT: ContentStructure = {
       [Language.EN]: "Main Sponsors",
     },
     partners: {
-      [Language.PT]: "Parceiros & Apoios",
-      [Language.EN]: "Partners & Supporters",
+      [Language.PT]: "Parceiros Institucionais",
+      [Language.EN]: "Institutional Partners",
+    },
+  },
+  contactSection: {
+    title: {
+      [Language.PT]: "Entra em contacto connosco",
+      [Language.EN]: "Get in touch with us",
+    },
+    nameLabel: {
+      [Language.PT]: "Nome",
+      [Language.EN]: "Name",
+    },
+    emailLabel: {
+      [Language.PT]: "Email",
+      [Language.EN]: "Email",
+    },
+    messageLabel: {
+      [Language.PT]: "Mensagem",
+      [Language.EN]: "Message",
+    },
+    submitButton: {
+      [Language.PT]: "Enviar Mensagem",
+      [Language.EN]: "Send Message",
+    },
+    successMessage: {
+      [Language.PT]: "Obrigado! A tua mensagem foi enviada com sucesso.",
+      [Language.EN]: "Thank you! Your message has been sent successfully.",
     },
   },
   organization: {
     organizedBy: {
-      [Language.PT]: "Evento organizado por",
-      [Language.EN]: "Event organized by",
+      [Language.PT]: "Organização",
+      [Language.EN]: "Organized by",
     },
   },
   footer: {
@@ -289,11 +639,11 @@ export const CONTENT: ContentStructure = {
       [Language.EN]: "Programme",
     },
     cinema: {
-      [Language.PT]: "Cinema de Autor",
-      [Language.EN]: "Author Cinema",
+      [Language.PT]: "Cinema",
+      [Language.EN]: "Cinema",
     },
     location: {
-      [Language.PT]: "Local",
+      [Language.PT]: "Localização",
       [Language.EN]: "Location",
     },
     contact: {
@@ -301,9 +651,9 @@ export const CONTENT: ContentStructure = {
       [Language.EN]: "Contact",
     },
     copyright: {
-        [Language.PT]: "© 2024 Comporta Design. Todos os direitos reservados.",
-        [Language.EN]: "© 2024 Comporta Design. All rights reserved."
-    }
+      [Language.PT]: "© 2024 Comporta Design. Todos os direitos reservados.",
+      [Language.EN]: "© 2024 Comporta Design. All rights reserved.",
+    },
   },
   chat: {
     initialMessage: {
@@ -311,8 +661,8 @@ export const CONTENT: ContentStructure = {
       [Language.EN]: "Hello! I'm the virtual assistant for Comporta Design 2026. How can I help you?",
     },
     placeholder: {
-        [Language.PT]: "Escreva a sua pergunta...",
-        [Language.EN]: "Type your question...",
+      [Language.PT]: "Digite a sua mensagem...",
+      [Language.EN]: "Type your message...",
     }
   }
 };
