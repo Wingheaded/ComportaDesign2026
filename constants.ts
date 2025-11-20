@@ -385,6 +385,7 @@ export const CONTENT: ContentStructure = {
           [Language.EN]: "May 1-8",
         },
         name: "VONDOM",
+        logo: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/logos/vondom_logo.jpg",
         description: {
           [Language.PT]: "Mobiliário de Exterior",
           [Language.EN]: "Outdoor Furniture",

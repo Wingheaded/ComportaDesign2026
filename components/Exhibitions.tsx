@@ -52,7 +52,7 @@ const Exhibitions: React.FC<ExhibitionsProps> = ({ language }) => {
                     <img 
                         src={item.logo} 
                         alt={`${item.name} logo`} 
-                        className="h-12 max-w-[120px] object-contain opacity-80 mix-blend-multiply"
+                        className="h-32 w-auto max-w-[240px] object-contain opacity-80 mix-blend-multiply"
                     />
                 )}
               </div>
