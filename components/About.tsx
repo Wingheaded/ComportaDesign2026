@@ -66,6 +66,9 @@ const About: React.FC<AboutProps> = ({ language }) => {
                     if (typeof item === 'string') {
                       return <span key={itemIndex}>{item}</span>;
                     }
+                    if (item.bold) {
+                      return <span key={itemIndex} className="font-bold">{item.text}</span>;
+                    }
                     return (
                       <a
                         href={item.url}

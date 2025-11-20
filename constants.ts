@@ -1,5 +1,3 @@
-
-
 import { Language } from './types';
 
 type LocalizedString = {
@@ -9,7 +7,7 @@ type LocalizedString = {
 type ComplexParagraph = {
   type: 'complex';
   content: {
-    [key in Language]: (string | { text: string; url: string })[];
+    [key in Language]: (string | { text: string; url?: string; bold?: boolean })[];
   };
 };
 export type Paragraph = LocalizedString | ComplexParagraph;
@@ -166,8 +164,8 @@ export const CONTENT: ContentStructure = {
       [Language.EN]: "April — May 2026 · Casa da Cultura da Comporta",
     },
     description: {
-        [Language.PT]: "Uma celebração do design, cultura e inovação no coração da Comporta.",
-        [Language.EN]: "A celebration of design, culture, and innovation in the heart of Comporta."
+      [Language.PT]: "Uma celebração do design, cultura e inovação no coração da Comporta.",
+      [Language.EN]: "A celebration of design, culture, and innovation in the heart of Comporta."
     },
     ctaPrimary: {
       [Language.PT]: "Agenda a tua visita",
@@ -185,8 +183,18 @@ export const CONTENT: ContentStructure = {
     },
     paragraphs: [
       {
-        [Language.PT]: "O Comporta Design 2026 nasce com a mesma energia que sempre existiu aqui: simplicidade, verdade e um respeito absoluto pela natureza e pelo ritmo próprio da Comporta. Inspirado pela Lisbon Design Week, mas com carácter totalmente nosso, o evento ocupa a Casa da Cultura da Comporta entre abril e maio de 2026, transformando o espaço num ponto de encontro entre design, arquitetura, cultura e comunidade.",
-        [Language.EN]: "Comporta Design 2026 is born from the same energy that has always existed here: simplicity, truth, and an absolute respect for nature and Comporta's unique rhythm. Inspired by Lisbon Design Week, but with a character that is entirely our own, the event takes over Casa da Cultura da Comporta between April and May 2026, transforming the space into a meeting point for design, architecture, culture, and community.",
+        type: 'complex',
+        content: {
+          [Language.PT]: [
+            "O ",
+            { text: "Comporta Design 2026", bold: true },
+            " nasce com a mesma energia que sempre existiu aqui: simplicidade, verdade e um respeito absoluto pela natureza e pelo ritmo próprio da Comporta. Inspirado pela Lisbon Design Week, mas com carácter totalmente nosso, o evento ocupa a Casa da Cultura da Comporta entre abril e maio de 2026, transformando o espaço num ponto de encontro entre design, arquitetura, cultura e comunidade."
+          ],
+          [Language.EN]: [
+            { text: "Comporta Design 2026", bold: true },
+            " is born from the same energy that has always existed here: simplicity, truth, and an absolute respect for nature and Comporta's unique rhythm. Inspired by Lisbon Design Week, but with a character that is entirely our own, the event takes over Casa da Cultura da Comporta between April and May 2026, transforming the space into a meeting point for design, architecture, culture, and community."
+          ]
+        }
       },
       {
         [Language.PT]: "Durante dois meses, recebemos designers, arquitetos e criadores que vão apresentar o seu trabalho num ciclo contínuo de exposições — cada um com a sua linguagem, cada um a trazer algo novo ao território.",
@@ -267,32 +275,32 @@ export const CONTENT: ContentStructure = {
           [Language.EN]: "Handmade homeware from Portugal",
         },
         details: {
-            description: [
-                {
-                    [Language.PT]: "Thilburg | Home ware feito à mão em Portugal",
-                    [Language.EN]: "Thilburg | Handmade homeware from Portugal"
-                },
-                {
-                    [Language.PT]: "Thilburg é uma marca original de acessórios para casa, fundada em Portugal em 2024 pelo designer Klaas Van Tilburgh. Apresentando uma coleção meticulosamente selecionada, Thilburg propõe uma fusão única entre luxo discreto e design minimalista. Cada peça é pensada para valorizar a essência da elegância discreta, combinando qualidade, simplicidade e tradição artesanal portuguesa.",
-                    [Language.EN]: "Thilburg is an original home accessories brand, founded in Portugal in 2024 by designer Klaas Van Tilburgh. Presenting a meticulously selected collection, Thilburg proposes a unique fusion between discreet luxury and minimalist design. Each piece is designed to value the essence of discreet elegance, combining quality, simplicity, and Portuguese artisanal tradition."
-                },
-                {
-                    [Language.PT]: "Nossa primeira coleção, “More or Less”, foi lançada durante a Lisbon Design Week 2025, trazendo objetos decorativos atemporais e reinventados, feitos para espaços onde a sofisticação se expressa em elementos de forma e matéria.",
-                    [Language.EN]: "Our first collection, “More or Less”, was launched during Lisbon Design Week 2025, bringing timeless and reinvented decorative objects, made for spaces where sophistication expresses itself in elements of form and matter."
-                }
-            ],
-            images: [
-                {
-                    url: "https://static.wixstatic.com/media/981362_6c5471d4d6f745188abaefb460979d46~mv2.jpg/v1/crop/x_0,y_404,w_1036,h_1421/fill/w_298,h_403,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/e1b79f6f-77a9-4493-9331-d851f3538add%202_e.jpg",
-                },
-                {
-                    url: "https://static.wixstatic.com/media/981362_4cf8271da92c434881cbce237f29468e~mv2.jpg/v1/crop/x_0,y_1004,w_4016,h_5006/fill/w_298,h_358,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/981362_4cf8271da92c434881cbce237f29468e~mv2.jpg",
-                }
-            ],
-            links: {
-                website: "https://www.thilburg.com/",
-                catalogUrl: "https://www.thilburg.com/pt/_files/ugd/981362_a20df2eb652045039388fb4edaa499ad.pdf",
+          description: [
+            {
+              [Language.PT]: "Thilburg | Home ware feito à mão em Portugal",
+              [Language.EN]: "Thilburg | Handmade homeware from Portugal"
+            },
+            {
+              [Language.PT]: "Thilburg é uma marca original de acessórios para casa, fundada em Portugal em 2024 pelo designer Klaas Van Tilburgh. Apresentando uma coleção meticulosamente selecionada, Thilburg propõe uma fusão única entre luxo discreto e design minimalista. Cada peça é pensada para valorizar a essência da elegância discreta, combinando qualidade, simplicidade e tradição artesanal portuguesa.",
+              [Language.EN]: "Thilburg is an original home accessories brand, founded in Portugal in 2024 by designer Klaas Van Tilburgh. Presenting a meticulously selected collection, Thilburg proposes a unique fusion between discreet luxury and minimalist design. Each piece is designed to value the essence of discreet elegance, combining quality, simplicity, and Portuguese artisanal tradition."
+            },
+            {
+              [Language.PT]: "Nossa primeira coleção, “More or Less”, foi lançada durante a Lisbon Design Week 2025, trazendo objetos decorativos atemporais e reinventados, feitos para espaços onde a sofisticação se expressa em elementos de forma e matéria.",
+              [Language.EN]: "Our first collection, “More or Less”, was launched during Lisbon Design Week 2025, bringing timeless and reinvented decorative objects, made for spaces where sophistication expresses itself in elements of form and matter."
             }
+          ],
+          images: [
+            {
+              url: "https://static.wixstatic.com/media/981362_6c5471d4d6f745188abaefb460979d46~mv2.jpg/v1/crop/x_0,y_404,w_1036,h_1421/fill/w_298,h_403,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/e1b79f6f-77a9-4493-9331-d851f3538add%202_e.jpg",
+            },
+            {
+              url: "https://static.wixstatic.com/media/981362_4cf8271da92c434881cbce237f29468e~mv2.jpg/v1/crop/x_0,y_1004,w_4016,h_5006/fill/w_298,h_358,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/981362_4cf8271da92c434881cbce237f29468e~mv2.jpg",
+            }
+          ],
+          links: {
+            website: "https://www.thilburg.com/",
+            catalogUrl: "https://www.thilburg.com/pt/_files/ugd/981362_a20df2eb652045039388fb4edaa499ad.pdf",
+          }
         }
       },
       {
@@ -529,182 +537,182 @@ export const CONTENT: ContentStructure = {
       [Language.EN]: "April — May 2026",
     },
     schedule: [
-        {
-            date: { [Language.PT]: "10 Abril", [Language.EN]: "April 10" },
-            title: "The Fountainhead",
-            director: "King Vidor",
-            year: "1949",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheFontainHead.jpg",
-            summary: {
-              [Language.PT]: "Um arquiteto intransigente luta contra as restrições sociais. A arquitetura e o design são fundamentais, simbolizando a independência criativa e ideais filosóficos sobre forma, função e integridade artística.",
-              [Language.EN]: "An uncompromising architect battles societal constraints. Architecture and design are integral, symbolizing creative independence and philosophical ideals about form, function, and artistic integrity."
-            }
-        },
-        {
-            date: { [Language.PT]: "11 Abril", [Language.EN]: "April 11" },
-            title: "Columbus",
-            director: "Kogonada",
-            year: "2017",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Columbus.jpg",
-            summary: {
-              [Language.PT]: "A arquitetura modernista molda conexões pessoais em Columbus, Indiana. O filme explora comovente como o design influencia a emoção, a reflexão e a comunidade, com edifícios como testemunhas silenciosas das experiências humanas.",
-              [Language.EN]: "Modernist architecture shapes personal connections in Columbus, Indiana. The film explores how design influences emotion, reflection, and community, with buildings as silent witnesses to human experiences."
-            }
-        },
-        {
-            date: { [Language.PT]: "17 Abril", [Language.EN]: "April 17" },
-            title: "Architecture 101",
-            director: "Lee Yong-ju",
-            year: "2012",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Architect101.jpg",
-            summary: {
-              [Language.PT]: "O primeiro amor e as memórias entrelaçam-se com a construção de uma casa e a revisitação de espaços arquitetónicos do passado. Explora como a arquitetura molda histórias de vida e o crescimento pessoal.",
-              [Language.EN]: "First love and memories are intertwined with home building and revisiting architectural spaces from the past. Explores how architecture shapes life stories and personal growth."
-            }
-        },
-        {
-            date: { [Language.PT]: "18 Abril", [Language.EN]: "April 18" },
-            title: "Sidewalls",
-            director: "Gustavo Taretto",
-            year: "2011",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Sidewalls.jpg",
-            summary: {
-              [Language.PT]: "O tecido urbano de Buenos Aires — edifícios, vazios e \"paredes meias\" — reflete isolamento e conexão. A arquitetura é palco e metáfora, mostrando como o design da cidade influencia os relacionamentos e a solidão.",
-              [Language.EN]: "Buenos Aires’ urban fabric—buildings, voids, and “sidewalls”—reflects isolation and connection. Architecture is both stage and metaphor, showing how city design influences relationships and solitude."
-            }
-        },
-        {
-            date: { [Language.PT]: "24 Abril", [Language.EN]: "April 24" },
-            title: "Dark City",
-            director: "Alex Proyas",
-            year: "1998",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/DarkCity.jpg",
-            summary: {
-              [Language.PT]: "Uma cidade pesadelo com arquitetura mutável torna-se ela própria uma personagem. O design urbano reflete estados psicológicos, transformando espaços à medida que o protagonista descobre a realidade e a identidade.",
-              [Language.EN]: "A nightmarish city with shifting architecture becomes a character itself. Urban design reflects psychological states, transforming spaces as the protagonist uncovers reality and identity."
-            }
-        },
-        {
-            date: { [Language.PT]: "25 Abril", [Language.EN]: "April 25" },
-            title: "High-Rise",
-            director: "Ben Wheatley",
-            year: "2015",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/HighRise.jpg",
-            summary: {
-              [Language.PT]: "A arquitetura de uma torre residencial impulsiona o conflito de classes, o colapso da comunidade e o caos. O design do edifício é central, ampliando as dinâmicas sociais e os efeitos psicológicos da vida urbana vertical.",
-              [Language.EN]: "A residential tower’s architecture drives class conflict, community breakdown, and chaos. Building design is central, magnifying social dynamics and the psychological effects of vertical urban living."
-            }
-        },
-        {
-            date: { [Language.PT]: "1 Maio", [Language.EN]: "May 1" },
-            title: "The Brutalist",
-            director: "Brady Corbet",
-            year: "2024",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheBrutalist.jpg",
-            summary: {
-              [Language.PT]: "A arquitetura brutalista do pós-guerra e a vida de um arquiteto estão profundamente ligadas. Foca-se em como o design, o trauma e a identidade pessoal se manifestam em formas austeras e monumentais.",
-              [Language.EN]: "Postwar brutalist architecture and an architect's life are deeply connected. Focuses on how design, trauma, and personal identity are manifested in stark, monumental forms."
-            }
-        },
-        {
-            date: { [Language.PT]: "2 Maio", [Language.EN]: "May 2" },
-            title: "The Man Next Door",
-            director: "Mariano Cohn, Gastón Duprat",
-            year: "2010",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheManNextDoor.jpg",
-            summary: {
-              [Language.PT]: "As tensões na vizinhança aumentam devido a elementos arquitetónicos — paredes e espaços abertos — mostrando como o design da casa e as fronteiras urbanas mediam conflitos e relacionamentos na vida moderna.",
-              [Language.EN]: "Neighbourhood tensions escalate due to architectural elements—walls and open spaces—showing how home design and urban boundaries mediate conflict and relationships in modern living."
-            }
-        },
-        {
-            date: { [Language.PT]: "8 Maio", [Language.EN]: "May 8" },
-            title: "Playtime",
-            director: "Jacques Tati",
-            year: "1967",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Playtime.jpg",
-            summary: {
-              [Language.PT]: "Numa cidade modernista, a arquitetura e o design moldam a forma como as pessoas interagem com os espaços urbanos. O filme explora com humor a alienação e a navegação em ambientes altamente projetados.",
-              [Language.EN]: "In a modernist city, architecture and design shape how people interact with urban spaces. The film humorously explores the alienation and navigation of highly designed environments."
-            }
-        },
-        {
-            date: { [Language.PT]: "9 Maio", [Language.EN]: "May 9" },
-            title: "Koyaanisqatsi",
-            director: "Godfrey Reggio",
-            year: "1982",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Koyaaniisqatsi.jpg",
-            summary: {
-              [Language.PT]: "Documentário abstrato que mostra paisagens e ambientes urbanos. A arquitetura e o planeamento urbano ilustram o desequilíbrio entre a natureza e o design artificial, questionando o impacto da tecnologia na vida humana.",
-              [Language.EN]: "Abstract documentary shows landscapes and urban environments. Architecture and city planning illustrate the imbalance between nature and artificial design, questioning technology’s impact on human life."
-            }
-        },
-        {
-            date: { [Language.PT]: "15 Maio", [Language.EN]: "May 15" },
-            title: "Metropolis",
-            director: "Fritz Lang",
-            year: "1927",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Metropolis.jpg",
-            summary: {
-              [Language.PT]: "A arquitetura de uma cidade futurista simboliza poder, divisão de classes e imaginação. O design personifica o espetáculo social e a mecanização, impactando o destino pessoal num mundo verticalmente estratificado.",
-              [Language.EN]: "A futuristic city’s architecture symbolizes power, class division, and imagination. Design embodies societal spectacle and mechanization, impacting personal destiny in a vertically stratified world."
-            }
-        },
-        {
-            date: { [Language.PT]: "16 Maio", [Language.EN]: "May 16" },
-            title: "The Towering Inferno",
-            director: "John Guillermin",
-            year: "1974",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheToweringInferno.jpg",
-            summary: {
-              [Language.PT]: "O desastre atinge um arranha-céus, sendo a arquitetura central para a sobrevivência e a narrativa. O design do edifício amplia o drama, tornando a estrutura protagonista na tragédia que se desenrola.",
-              [Language.EN]: "Disaster strikes a skyscraper, with architecture central to survival and storytelling. Building design magnifies drama, making the structure itself a protagonist in the unfolding tragedy."
-            }
-        },
-        {
-            date: { [Language.PT]: "22 Maio", [Language.EN]: "May 22" },
-            title: "Life as a House",
-            director: "Irwin Winkler",
-            year: "2001",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/LifeAsaHouse.jpg",
-            summary: {
-              [Language.PT]: "Construir uma casa representa transformação, cura e conexão. A arquitetura torna-se uma metáfora para a mudança pessoal, com jornadas emocionais entrelaçadas com o ato de projetar espaços.",
-              [Language.EN]: "Building a home represents transformation, healing, and connection. Architecture becomes a metaphor for personal change, with emotional journeys intertwined with the act of designing spaces."
-            }
-        },
-        {
-            date: { [Language.PT]: "23 Maio", [Language.EN]: "May 23" },
-            title: "The Architect",
-            director: "Jonathan Parker",
-            year: "2016",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheArchitect.jpg",
-            summary: {
-              [Language.PT]: "As escolhas de um arquiteto impactam várias vidas, examinando como o design influencia os relacionamentos pessoais e a comunidade. Destaca questões éticas na arquitetura, misturando o estudo de personagens com o ambiente construído.",
-              [Language.EN]: "An architect’s choices impact multiple lives, examining how design influences personal relationships and community. Highlights ethical questions in architecture, blending character study with built environment."
-            }
-        },
-        {
-            date: { [Language.PT]: "29 Maio", [Language.EN]: "May 29" },
-            title: "The Black Cat",
-            director: "Edgar G. Ulmer",
-            year: "1934",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheBlackCat.jpg",
-            summary: {
-              [Language.PT]: "Um conto de terror passado numa casa cuja arquitetura peculiar se torna central. O design do edifício cria desconforto psicológico, transformando espaços em agentes ativos de pavor.",
-              [Language.EN]: "A horror tale set in a house whose peculiar architecture becomes central. The building’s design creates psychological unease, turning spaces into active agents of dread."
-            }
-        },
-        {
-            date: { [Language.PT]: "30 Maio", [Language.EN]: "May 30" },
-            title: "Strangers When We Meet",
-            director: "Richard Quine",
-            year: "1960",
-            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/StrangersWhenWeMeet.jpg",
-            summary: {
-              [Language.PT]: "O projeto de um arquiteto entrelaça-se com a sua vida pessoal, com o design da casa a refletir a complexidade emocional. A arquitetura é cenário e símbolo para os relacionamentos intrincados da história.",
-              [Language.EN]: "An architect’s project intertwines with his personal life, with house design reflecting emotional complexity. Architecture is both setting and symbol for the story’s intricate relationships."
-            }
+      {
+        date: { [Language.PT]: "10 Abril", [Language.EN]: "April 10" },
+        title: "The Fountainhead",
+        director: "King Vidor",
+        year: "1949",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheFontainHead.jpg",
+        summary: {
+          [Language.PT]: "Um arquiteto intransigente luta contra as restrições sociais. A arquitetura e o design são fundamentais, simbolizando a independência criativa e ideais filosóficos sobre forma, função e integridade artística.",
+          [Language.EN]: "An uncompromising architect battles societal constraints. Architecture and design are integral, symbolizing creative independence and philosophical ideals about form, function, and artistic integrity."
         }
+      },
+      {
+        date: { [Language.PT]: "11 Abril", [Language.EN]: "April 11" },
+        title: "Columbus",
+        director: "Kogonada",
+        year: "2017",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Columbus.jpg",
+        summary: {
+          [Language.PT]: "A arquitetura modernista molda conexões pessoais em Columbus, Indiana. O filme explora comovente como o design influencia a emoção, a reflexão e a comunidade, com edifícios como testemunhas silenciosas das experiências humanas.",
+          [Language.EN]: "Modernist architecture shapes personal connections in Columbus, Indiana. The film explores how design influences emotion, reflection, and community, with buildings as silent witnesses to human experiences."
+        }
+      },
+      {
+        date: { [Language.PT]: "17 Abril", [Language.EN]: "April 17" },
+        title: "Architecture 101",
+        director: "Lee Yong-ju",
+        year: "2012",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Architect101.jpg",
+        summary: {
+          [Language.PT]: "O primeiro amor e as memórias entrelaçam-se com a construção de uma casa e a revisitação de espaços arquitetónicos do passado. Explora como a arquitetura molda histórias de vida e o crescimento pessoal.",
+          [Language.EN]: "First love and memories are intertwined with home building and revisiting architectural spaces from the past. Explores how architecture shapes life stories and personal growth."
+        }
+      },
+      {
+        date: { [Language.PT]: "18 Abril", [Language.EN]: "April 18" },
+        title: "Sidewalls",
+        director: "Gustavo Taretto",
+        year: "2011",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Sidewalls.jpg",
+        summary: {
+          [Language.PT]: "O tecido urbano de Buenos Aires — edifícios, vazios e \"paredes meias\" — reflete isolamento e conexão. A arquitetura é palco e metáfora, mostrando como o design da cidade influencia os relacionamentos e a solidão.",
+          [Language.EN]: "Buenos Aires’ urban fabric—buildings, voids, and “sidewalls”—reflects isolation and connection. Architecture is both stage and metaphor, showing how city design influences relationships and solitude."
+        }
+      },
+      {
+        date: { [Language.PT]: "24 Abril", [Language.EN]: "April 24" },
+        title: "Dark City",
+        director: "Alex Proyas",
+        year: "1998",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/DarkCity.jpg",
+        summary: {
+          [Language.PT]: "Uma cidade pesadelo com arquitetura mutável torna-se ela própria uma personagem. O design urbano reflete estados psicológicos, transformando espaços à medida que o protagonista descobre a realidade e a identidade.",
+          [Language.EN]: "A nightmarish city with shifting architecture becomes a character itself. Urban design reflects psychological states, transforming spaces as the protagonist uncovers reality and identity."
+        }
+      },
+      {
+        date: { [Language.PT]: "25 Abril", [Language.EN]: "April 25" },
+        title: "High-Rise",
+        director: "Ben Wheatley",
+        year: "2015",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/HighRise.jpg",
+        summary: {
+          [Language.PT]: "A arquitetura de uma torre residencial impulsiona o conflito de classes, o colapso da comunidade e o caos. O design do edifício é central, ampliando as dinâmicas sociais e os efeitos psicológicos da vida urbana vertical.",
+          [Language.EN]: "A residential tower’s architecture drives class conflict, community breakdown, and chaos. Building design is central, magnifying social dynamics and the psychological effects of vertical urban living."
+        }
+      },
+      {
+        date: { [Language.PT]: "1 Maio", [Language.EN]: "May 1" },
+        title: "The Brutalist",
+        director: "Brady Corbet",
+        year: "2024",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheBrutalist.jpg",
+        summary: {
+          [Language.PT]: "A arquitetura brutalista do pós-guerra e a vida de um arquiteto estão profundamente ligadas. Foca-se em como o design, o trauma e a identidade pessoal se manifestam em formas austeras e monumentais.",
+          [Language.EN]: "Postwar brutalist architecture and an architect's life are deeply connected. Focuses on how design, trauma, and personal identity are manifested in stark, monumental forms."
+        }
+      },
+      {
+        date: { [Language.PT]: "2 Maio", [Language.EN]: "May 2" },
+        title: "The Man Next Door",
+        director: "Mariano Cohn, Gastón Duprat",
+        year: "2010",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheManNextDoor.jpg",
+        summary: {
+          [Language.PT]: "As tensões na vizinhança aumentam devido a elementos arquitetónicos — paredes e espaços abertos — mostrando como o design da casa e as fronteiras urbanas mediam conflitos e relacionamentos na vida moderna.",
+          [Language.EN]: "Neighbourhood tensions escalate due to architectural elements—walls and open spaces—showing how home design and urban boundaries mediate conflict and relationships in modern living."
+        }
+      },
+      {
+        date: { [Language.PT]: "8 Maio", [Language.EN]: "May 8" },
+        title: "Playtime",
+        director: "Jacques Tati",
+        year: "1967",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Playtime.jpg",
+        summary: {
+          [Language.PT]: "Numa cidade modernista, a arquitetura e o design moldam a forma como as pessoas interagem com os espaços urbanos. O filme explora com humor a alienação e a navegação em ambientes altamente projetados.",
+          [Language.EN]: "In a modernist city, architecture and design shape how people interact with urban spaces. The film humorously explores the alienation and navigation of highly designed environments."
+        }
+      },
+      {
+        date: { [Language.PT]: "9 Maio", [Language.EN]: "May 9" },
+        title: "Koyaanisqatsi",
+        director: "Godfrey Reggio",
+        year: "1982",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Koyaaniisqatsi.jpg",
+        summary: {
+          [Language.PT]: "Documentário abstrato que mostra paisagens e ambientes urbanos. A arquitetura e o planeamento urbano ilustram o desequilíbrio entre a natureza e o design artificial, questionando o impacto da tecnologia na vida humana.",
+          [Language.EN]: "Abstract documentary shows landscapes and urban environments. Architecture and city planning illustrate the imbalance between nature and artificial design, questioning technology’s impact on human life."
+        }
+      },
+      {
+        date: { [Language.PT]: "15 Maio", [Language.EN]: "May 15" },
+        title: "Metropolis",
+        director: "Fritz Lang",
+        year: "1927",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Metropolis.jpg",
+        summary: {
+          [Language.PT]: "A arquitetura de uma cidade futurista simboliza poder, divisão de classes e imaginação. O design personifica o espetáculo social e a mecanização, impactando o destino pessoal num mundo verticalmente estratificado.",
+          [Language.EN]: "A futuristic city’s architecture symbolizes power, class division, and imagination. Design embodies societal spectacle and mechanization, impacting personal destiny in a vertically stratified world."
+        }
+      },
+      {
+        date: { [Language.PT]: "16 Maio", [Language.EN]: "May 16" },
+        title: "The Towering Inferno",
+        director: "John Guillermin",
+        year: "1974",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheToweringInferno.jpg",
+        summary: {
+          [Language.PT]: "O desastre atinge um arranha-céus, sendo a arquitetura central para a sobrevivência e a narrativa. O design do edifício amplia o drama, tornando a estrutura protagonista na tragédia que se desenrola.",
+          [Language.EN]: "Disaster strikes a skyscraper, with architecture central to survival and storytelling. Building design magnifies drama, making the structure itself a protagonist in the unfolding tragedy."
+        }
+      },
+      {
+        date: { [Language.PT]: "22 Maio", [Language.EN]: "May 22" },
+        title: "Life as a House",
+        director: "Irwin Winkler",
+        year: "2001",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/LifeAsaHouse.jpg",
+        summary: {
+          [Language.PT]: "Construir uma casa representa transformação, cura e conexão. A arquitetura torna-se uma metáfora para a mudança pessoal, com jornadas emocionais entrelaçadas com o ato de projetar espaços.",
+          [Language.EN]: "Building a home represents transformation, healing, and connection. Architecture becomes a metaphor for personal change, with emotional journeys intertwined with the act of designing spaces."
+        }
+      },
+      {
+        date: { [Language.PT]: "23 Maio", [Language.EN]: "May 23" },
+        title: "The Architect",
+        director: "Jonathan Parker",
+        year: "2016",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheArchitect.jpg",
+        summary: {
+          [Language.PT]: "As escolhas de um arquiteto impactam várias vidas, examinando como o design influencia os relacionamentos pessoais e a comunidade. Destaca questões éticas na arquitetura, misturando o estudo de personagens com o ambiente construído.",
+          [Language.EN]: "An architect’s choices impact multiple lives, examining how design influences personal relationships and community. Highlights ethical questions in architecture, blending character study with built environment."
+        }
+      },
+      {
+        date: { [Language.PT]: "29 Maio", [Language.EN]: "May 29" },
+        title: "The Black Cat",
+        director: "Edgar G. Ulmer",
+        year: "1934",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheBlackCat.jpg",
+        summary: {
+          [Language.PT]: "Um conto de terror passado numa casa cuja arquitetura peculiar se torna central. O design do edifício cria desconforto psicológico, transformando espaços em agentes ativos de pavor.",
+          [Language.EN]: "A horror tale set in a house whose peculiar architecture becomes central. The building’s design creates psychological unease, turning spaces into active agents of dread."
+        }
+      },
+      {
+        date: { [Language.PT]: "30 Maio", [Language.EN]: "May 30" },
+        title: "Strangers When We Meet",
+        director: "Richard Quine",
+        year: "1960",
+        image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/StrangersWhenWeMeet.jpg",
+        summary: {
+          [Language.PT]: "O projeto de um arquiteto entrelaça-se com a sua vida pessoal, com o design da casa a refletir a complexidade emocional. A arquitetura é cenário e símbolo para os relacionamentos intrincados da história.",
+          [Language.EN]: "An architect’s project intertwines with his personal life, with house design reflecting emotional complexity. Architecture is both setting and symbol for the story’s intricate relationships."
+        }
+      }
     ]
   },
   venue: {
