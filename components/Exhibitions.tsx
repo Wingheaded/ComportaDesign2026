@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import { Language } from '../types';
 import { CONTENT, Exhibitor } from '../constants';
@@ -38,14 +39,25 @@ const Exhibitions: React.FC<ExhibitionsProps> = ({ language }) => {
             <div 
               key={index} 
               onClick={() => item.details && setSelectedExhibitor(item)}
-              className={`flex flex-col sm:flex-row justify-between sm:items-center gap-4 py-8 border-b border-soft-gray last:border-b-0 transition-colors duration-200 ${item.details ? 'cursor-pointer hover:bg-soft-gray/20' : ''}`}
+              className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 py-8 border-b border-soft-gray last:border-b-0 transition-colors duration-200 ${item.details ? 'cursor-pointer hover:bg-soft-gray/20' : ''}`}
             >
-              <div className="w-full sm:w-1/3">
+              <div className="w-full sm:w-1/4">
                 <p className="font-grotesk text-xl md:text-2xl font-medium text-soft-black">
                   {item.date[language]}
                 </p>
               </div>
-              <div className="w-full sm:w-2/3 sm:text-right">
+              
+              <div className="w-full sm:w-1/4 flex justify-start sm:justify-center">
+                {item.logo && (
+                    <img 
+                        src={item.logo} 
+                        alt={`${item.name} logo`} 
+                        className="h-12 max-w-[120px] object-contain opacity-80 mix-blend-multiply"
+                    />
+                )}
+              </div>
+
+              <div className="w-full sm:w-1/2 sm:text-right">
                 <h3 className="font-grotesk text-xl md:text-2xl font-medium tracking-tight whitespace-pre-line leading-tight">
                   {item.name}
                 </h3>

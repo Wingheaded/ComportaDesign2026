@@ -1,4 +1,5 @@
 
+
 import { Language } from './types';
 
 type LocalizedString = {
@@ -30,6 +31,7 @@ export interface ExhibitorDetails {
 export interface Exhibitor {
   date: LocalizedString;
   name: string;
+  logo?: string;
   description?: LocalizedString;
   details?: ExhibitorDetails;
 }
@@ -259,6 +261,7 @@ export const CONTENT: ContentStructure = {
           [Language.EN]: "April 1-8",
         },
         name: "THILBURG",
+        logo: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/logos/thilburg_logo.jpg",
         description: {
           [Language.PT]: "Home ware feito à mão em Portugal",
           [Language.EN]: "Handmade homeware from Portugal",
@@ -298,6 +301,7 @@ export const CONTENT: ContentStructure = {
           [Language.EN]: "April 9-16",
         },
         name: "ASSO. PASSA AO FUTURO",
+        logo: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/logos/passa-ao-futuro-logo.jpg",
         description: {
           [Language.PT]: "Património Artesanal Português",
           [Language.EN]: "Portuguese Artisanal Heritage",
@@ -341,6 +345,7 @@ export const CONTENT: ContentStructure = {
           [Language.EN]: "April 17-30",
         },
         name: "POOLINS",
+        logo: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/logos/poolins-logo.jpg",
         description: {
           [Language.PT]: "Piscinas Ecológicas e Exterior",
           [Language.EN]: "Eco-friendly Pools & Outdoor",
@@ -379,32 +384,33 @@ export const CONTENT: ContentStructure = {
           [Language.PT]: "1-8 Maio",
           [Language.EN]: "May 1-8",
         },
-        name: "ARQUITETO\nMANUEL AIRES MATEUS",
+        name: "VONDOM",
         description: {
-          [Language.PT]: "Arquitetura",
-          [Language.EN]: "Architecture",
+          [Language.PT]: "Mobiliário de Exterior",
+          [Language.EN]: "Outdoor Furniture",
         },
         details: {
           description: [
             {
-              [Language.PT]: "Manuel Aires Mateus | Arquitetura que valoriza luz e simplicidade",
-              [Language.EN]: "Manuel Aires Mateus | Architecture that values light and simplicity"
+              [Language.PT]: "Vondom | Design de Mobiliário de Exterior",
+              [Language.EN]: "Vondom | Outdoor Furniture Design"
             },
             {
-              [Language.PT]: "Manuel Aires Mateus é um dos mais distintos arquitetos portugueses contemporâneos, nascido em Lisboa em 1963 e fundador do atelier Aires Mateus & Associados. Suas obras, premiadas e reconhecidas internacionalmente, elevam a arquitetura nacional pela busca constante do rigor geométrico, pela valorização da luz natural e pela simplicidade formal, preservando sempre a essência do traço português.",
-              [Language.EN]: "Manuel Aires Mateus is one of the most distinguished contemporary Portuguese architects, born in Lisbon in 1963 and founder of the studio Aires Mateus & Associados. His works, awarded and recognized internationally, elevate national architecture through the constant search for geometric rigor, the appreciation of natural light, and formal simplicity, always preserving the essence of the Portuguese trace."
+              [Language.PT]: "A Vondom é uma marca espanhola de renome especializada em mobiliário de exterior inovador e de design único, vasos e acessórios decorativos. Estabelecida em 2008, a Vondom destaca-se pelo seu compromisso com a estética moderna, durabilidade e sustentabilidade, incorporando materiais naturais e 100% recicláveis nas suas coleções.",
+              [Language.EN]: "Vondom is a renowned Spanish brand specializing in innovative and uniquely designed outdoor furniture, planters, and decorative accessories. Established in 2008, Vondom stands out for its commitment to modern aesthetics, durability, and sustainability, incorporating natural and 100% recyclable materials in its collections."
             },
             {
-              [Language.PT]: "Aires Mateus propõe projetos residenciais e culturais onde cada elemento — seja uma piscina escultórica ou uma habitação minimalista — interage harmoniosamente com a paisagem e prioriza o convívio, a contemplação e a atenção minuciosa ao detalhe construtivo. Seu portfólio inclui referências como Pa.te.os, Casa em Melides e Casa em Barreiro, onde arquitetura e natureza dialogam numa linguagem sofisticada e atemporal.",
-              [Language.EN]: "Aires Mateus proposes residential and cultural projects where each element—whether a sculptural pool or a minimalist dwelling—interacts harmoniously with the landscape and prioritizes social interaction, contemplation, and meticulous attention to constructive detail. His portfolio includes references such as Pa.te.os, House in Melides, and House in Barreiro, where architecture and nature dialogue in a sophisticated and timeless language."
+              [Language.PT]: "Os seus produtos — que vão desde espreguiçadeiras elegantes a sofás modulares — são criados tanto para espaços residenciais como para projetos de contrato, incluindo hotéis e restaurantes. A Vondom colabora com designers de topo para criar coleções que transformam ambientes exteriores em espaços de vida inspiradores e confortáveis.",
+              [Language.EN]: "Their products—ranging from elegant loungers to modular sofas—are crafted for both residential and contract spaces, including hotels and restaurants. Vondom collaborates with leading designers to create collections that transform exterior environments into inspiring and comfortable living spaces."
             }
           ],
           images: [
-            { url: "https://estliving.com/wp-content/uploads/2023/01/est-living-manuel-aires-mateaus-pateos-1.jpeg" },
-            { url: "https://arquitecturaviva.com/assets/uploads/obras/55961/av_medium__av_261103.webp?h=1d49c28d" }
+            { url: "https://cdn.vondom.com/wp-content/smush-webp/2025/02/Vondom-Pasadena-Jean-Marie-Massaud-1.jpg.webp" },
+            { url: "https://cdn.vondom.com/wp-content/smush-webp/2023/04/Vondom-Milos-Jean-Marie-Massaud-1920x1280_0001_225_29_corner-entrance_PM_final_Upd.jpg.webp" }
           ],
           links: {
-            website: "https://www.airesmateus.com/"
+            website: "https://www.vondom.com/",
+            catalogUrl: "https://www.vondom.com/products/"
           }
         }
       },
@@ -414,6 +420,7 @@ export const CONTENT: ContentStructure = {
           [Language.EN]: "May 9-16",
         },
         name: "MORDESIGN",
+        logo: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/logos/mordesign-logo.jpg",
         description: {
           [Language.PT]: "Design Sustentável",
           [Language.EN]: "Sustainable Design",
@@ -453,6 +460,7 @@ export const CONTENT: ContentStructure = {
           [Language.EN]: "May 17-31",
         },
         name: "WEWOOD",
+        logo: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/logos/wewood-logo.jpg",
         description: {
           [Language.PT]: "Marcenaria Portuguesa",
           [Language.EN]: "Portuguese Joinery",
@@ -525,9 +533,9 @@ export const CONTENT: ContentStructure = {
             title: "The Fountainhead",
             director: "King Vidor",
             year: "1949",
-            image: "/movies/the-fountainhead.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheFontainHead.jpg",
             summary: {
-              [Language.PT]: "An uncompromising architect battles societal constraints. Architecture and design are integral, symbolizing creative independence and philosophical ideals about form, function, and artistic integrity.",
+              [Language.PT]: "Um arquiteto intransigente luta contra as restrições sociais. A arquitetura e o design são fundamentais, simbolizando a independência criativa e ideais filosóficos sobre forma, função e integridade artística.",
               [Language.EN]: "An uncompromising architect battles societal constraints. Architecture and design are integral, symbolizing creative independence and philosophical ideals about form, function, and artistic integrity."
             }
         },
@@ -536,9 +544,9 @@ export const CONTENT: ContentStructure = {
             title: "Columbus",
             director: "Kogonada",
             year: "2017",
-            image: "/movies/columbus.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Columbus.jpg",
             summary: {
-              [Language.PT]: "Modernist architecture shapes personal connections in Columbus, Indiana. The film explores how design influences emotion, reflection, and community, with buildings as silent witnesses to human experiences.",
+              [Language.PT]: "A arquitetura modernista molda conexões pessoais em Columbus, Indiana. O filme explora comovente como o design influencia a emoção, a reflexão e a comunidade, com edifícios como testemunhas silenciosas das experiências humanas.",
               [Language.EN]: "Modernist architecture shapes personal connections in Columbus, Indiana. The film explores how design influences emotion, reflection, and community, with buildings as silent witnesses to human experiences."
             }
         },
@@ -547,9 +555,9 @@ export const CONTENT: ContentStructure = {
             title: "Architecture 101",
             director: "Lee Yong-ju",
             year: "2012",
-            image: "/movies/architecture-101.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Architect101.jpg",
             summary: {
-              [Language.PT]: "First love and memories are intertwined with home building and revisiting architectural spaces from the past. Explores how architecture shapes life stories and personal growth.",
+              [Language.PT]: "O primeiro amor e as memórias entrelaçam-se com a construção de uma casa e a revisitação de espaços arquitetónicos do passado. Explora como a arquitetura molda histórias de vida e o crescimento pessoal.",
               [Language.EN]: "First love and memories are intertwined with home building and revisiting architectural spaces from the past. Explores how architecture shapes life stories and personal growth."
             }
         },
@@ -558,9 +566,9 @@ export const CONTENT: ContentStructure = {
             title: "Sidewalls",
             director: "Gustavo Taretto",
             year: "2011",
-            image: "/movies/sidewalls.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Sidewalls.jpg",
             summary: {
-              [Language.PT]: "Buenos Aires’ urban fabric—buildings, voids, and “sidewalls”—reflects isolation and connection. Architecture is both stage and metaphor, showing how city design influences relationships and solitude.",
+              [Language.PT]: "O tecido urbano de Buenos Aires — edifícios, vazios e \"paredes meias\" — reflete isolamento e conexão. A arquitetura é palco e metáfora, mostrando como o design da cidade influencia os relacionamentos e a solidão.",
               [Language.EN]: "Buenos Aires’ urban fabric—buildings, voids, and “sidewalls”—reflects isolation and connection. Architecture is both stage and metaphor, showing how city design influences relationships and solitude."
             }
         },
@@ -569,9 +577,9 @@ export const CONTENT: ContentStructure = {
             title: "Dark City",
             director: "Alex Proyas",
             year: "1998",
-            image: "/movies/dark-city.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/DarkCity.jpg",
             summary: {
-              [Language.PT]: "A nightmarish city with shifting architecture becomes a character itself. Urban design reflects psychological states, transforming spaces as the protagonist uncovers reality and identity.",
+              [Language.PT]: "Uma cidade pesadelo com arquitetura mutável torna-se ela própria uma personagem. O design urbano reflete estados psicológicos, transformando espaços à medida que o protagonista descobre a realidade e a identidade.",
               [Language.EN]: "A nightmarish city with shifting architecture becomes a character itself. Urban design reflects psychological states, transforming spaces as the protagonist uncovers reality and identity."
             }
         },
@@ -580,9 +588,9 @@ export const CONTENT: ContentStructure = {
             title: "High-Rise",
             director: "Ben Wheatley",
             year: "2015",
-            image: "/movies/high-rise.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/HighRise.jpg",
             summary: {
-              [Language.PT]: "A residential tower’s architecture drives class conflict, community breakdown, and chaos. Building design is central, magnifying social dynamics and the psychological effects of vertical urban living.",
+              [Language.PT]: "A arquitetura de uma torre residencial impulsiona o conflito de classes, o colapso da comunidade e o caos. O design do edifício é central, ampliando as dinâmicas sociais e os efeitos psicológicos da vida urbana vertical.",
               [Language.EN]: "A residential tower’s architecture drives class conflict, community breakdown, and chaos. Building design is central, magnifying social dynamics and the psychological effects of vertical urban living."
             }
         },
@@ -591,9 +599,9 @@ export const CONTENT: ContentStructure = {
             title: "The Brutalist",
             director: "Brady Corbet",
             year: "2024",
-            image: "/movies/the-brutalist.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheBrutalist.jpg",
             summary: {
-              [Language.PT]: "Postwar brutalist architecture and an architect's life are deeply connected. Focuses on how design, trauma, and personal identity are manifested in stark, monumental forms.",
+              [Language.PT]: "A arquitetura brutalista do pós-guerra e a vida de um arquiteto estão profundamente ligadas. Foca-se em como o design, o trauma e a identidade pessoal se manifestam em formas austeras e monumentais.",
               [Language.EN]: "Postwar brutalist architecture and an architect's life are deeply connected. Focuses on how design, trauma, and personal identity are manifested in stark, monumental forms."
             }
         },
@@ -602,9 +610,9 @@ export const CONTENT: ContentStructure = {
             title: "The Man Next Door",
             director: "Mariano Cohn, Gastón Duprat",
             year: "2010",
-            image: "/movies/the-man-next-door.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheManNextDoor.jpg",
             summary: {
-              [Language.PT]: "Neighbourhood tensions escalate due to architectural elements—walls and open spaces—showing how home design and urban boundaries mediate conflict and relationships in modern living.",
+              [Language.PT]: "As tensões na vizinhança aumentam devido a elementos arquitetónicos — paredes e espaços abertos — mostrando como o design da casa e as fronteiras urbanas mediam conflitos e relacionamentos na vida moderna.",
               [Language.EN]: "Neighbourhood tensions escalate due to architectural elements—walls and open spaces—showing how home design and urban boundaries mediate conflict and relationships in modern living."
             }
         },
@@ -613,9 +621,9 @@ export const CONTENT: ContentStructure = {
             title: "Playtime",
             director: "Jacques Tati",
             year: "1967",
-            image: "/movies/playtime.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Playtime.jpg",
             summary: {
-              [Language.PT]: "In a modernist city, architecture and design shape how people interact with urban spaces. The film humorously explores the alienation and navigation of highly designed environments.",
+              [Language.PT]: "Numa cidade modernista, a arquitetura e o design moldam a forma como as pessoas interagem com os espaços urbanos. O filme explora com humor a alienação e a navegação em ambientes altamente projetados.",
               [Language.EN]: "In a modernist city, architecture and design shape how people interact with urban spaces. The film humorously explores the alienation and navigation of highly designed environments."
             }
         },
@@ -624,9 +632,9 @@ export const CONTENT: ContentStructure = {
             title: "Koyaanisqatsi",
             director: "Godfrey Reggio",
             year: "1982",
-            image: "/movies/koyaanisqatsi.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Koyaaniisqatsi.jpg",
             summary: {
-              [Language.PT]: "Abstract documentary shows landscapes and urban environments. Architecture and city planning illustrate the imbalance between nature and artificial design, questioning technology’s impact on human life.",
+              [Language.PT]: "Documentário abstrato que mostra paisagens e ambientes urbanos. A arquitetura e o planeamento urbano ilustram o desequilíbrio entre a natureza e o design artificial, questionando o impacto da tecnologia na vida humana.",
               [Language.EN]: "Abstract documentary shows landscapes and urban environments. Architecture and city planning illustrate the imbalance between nature and artificial design, questioning technology’s impact on human life."
             }
         },
@@ -635,9 +643,9 @@ export const CONTENT: ContentStructure = {
             title: "Metropolis",
             director: "Fritz Lang",
             year: "1927",
-            image: "/movies/metropolis.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/Metropolis.jpg",
             summary: {
-              [Language.PT]: "A futuristic city’s architecture symbolizes power, class division, and imagination. Design embodies societal spectacle and mechanization, impacting personal destiny in a vertically stratified world.",
+              [Language.PT]: "A arquitetura de uma cidade futurista simboliza poder, divisão de classes e imaginação. O design personifica o espetáculo social e a mecanização, impactando o destino pessoal num mundo verticalmente estratificado.",
               [Language.EN]: "A futuristic city’s architecture symbolizes power, class division, and imagination. Design embodies societal spectacle and mechanization, impacting personal destiny in a vertically stratified world."
             }
         },
@@ -646,9 +654,9 @@ export const CONTENT: ContentStructure = {
             title: "The Towering Inferno",
             director: "John Guillermin",
             year: "1974",
-            image: "/movies/the-towering-inferno.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheToweringInferno.jpg",
             summary: {
-              [Language.PT]: "Disaster strikes a skyscraper, with architecture central to survival and storytelling. Building design magnifies drama, making the structure itself a protagonist in the unfolding tragedy.",
+              [Language.PT]: "O desastre atinge um arranha-céus, sendo a arquitetura central para a sobrevivência e a narrativa. O design do edifício amplia o drama, tornando a estrutura protagonista na tragédia que se desenrola.",
               [Language.EN]: "Disaster strikes a skyscraper, with architecture central to survival and storytelling. Building design magnifies drama, making the structure itself a protagonist in the unfolding tragedy."
             }
         },
@@ -657,9 +665,9 @@ export const CONTENT: ContentStructure = {
             title: "Life as a House",
             director: "Irwin Winkler",
             year: "2001",
-            image: "/movies/life-as-a-house.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/LifeAsaHouse.jpg",
             summary: {
-              [Language.PT]: "Building a home represents transformation, healing, and connection. Architecture becomes a metaphor for personal change, with emotional journeys intertwined with the act of designing spaces.",
+              [Language.PT]: "Construir uma casa representa transformação, cura e conexão. A arquitetura torna-se uma metáfora para a mudança pessoal, com jornadas emocionais entrelaçadas com o ato de projetar espaços.",
               [Language.EN]: "Building a home represents transformation, healing, and connection. Architecture becomes a metaphor for personal change, with emotional journeys intertwined with the act of designing spaces."
             }
         },
@@ -668,9 +676,9 @@ export const CONTENT: ContentStructure = {
             title: "The Architect",
             director: "Jonathan Parker",
             year: "2016",
-            image: "/movies/the-architect.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheArchitect.jpg",
             summary: {
-              [Language.PT]: "An architect’s choices impact multiple lives, examining how design influences personal relationships and community. Highlights ethical questions in architecture, blending character study with built environment.",
+              [Language.PT]: "As escolhas de um arquiteto impactam várias vidas, examinando como o design influencia os relacionamentos pessoais e a comunidade. Destaca questões éticas na arquitetura, misturando o estudo de personagens com o ambiente construído.",
               [Language.EN]: "An architect’s choices impact multiple lives, examining how design influences personal relationships and community. Highlights ethical questions in architecture, blending character study with built environment."
             }
         },
@@ -679,9 +687,9 @@ export const CONTENT: ContentStructure = {
             title: "The Black Cat",
             director: "Edgar G. Ulmer",
             year: "1934",
-            image: "/movies/the-black-cat.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/TheBlackCat.jpg",
             summary: {
-              [Language.PT]: "A horror tale set in a house whose peculiar architecture becomes central. The building’s design creates psychological unease, turning spaces into active agents of dread.",
+              [Language.PT]: "Um conto de terror passado numa casa cuja arquitetura peculiar se torna central. O design do edifício cria desconforto psicológico, transformando espaços em agentes ativos de pavor.",
               [Language.EN]: "A horror tale set in a house whose peculiar architecture becomes central. The building’s design creates psychological unease, turning spaces into active agents of dread."
             }
         },
@@ -690,9 +698,9 @@ export const CONTENT: ContentStructure = {
             title: "Strangers When We Meet",
             director: "Richard Quine",
             year: "1960",
-            image: "/movies/strangers-when-we-meet.jpg",
+            image: "https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/movies/StrangersWhenWeMeet.jpg",
             summary: {
-              [Language.PT]: "An architect’s project intertwines with his personal life, with house design reflecting emotional complexity. Architecture is both setting and symbol for the story’s intricate relationships.",
+              [Language.PT]: "O projeto de um arquiteto entrelaça-se com a sua vida pessoal, com o design da casa a refletir a complexidade emocional. A arquitetura é cenário e símbolo para os relacionamentos intrincados da história.",
               [Language.EN]: "An architect’s project intertwines with his personal life, with house design reflecting emotional complexity. Architecture is both setting and symbol for the story’s intricate relationships."
             }
         }
