@@ -45,12 +45,22 @@
             scroll: {
               '0%': { transform: 'translateX(0)' },
               '100%': { transform: 'translateX(-50%)' },
+            },
+            slideUpFade: {
+              '0%': { opacity: '0', transform: 'translateY(2rem)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
             }
           },
           animation: {
             'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
             'scale-in': 'scaleIn 1s ease-out forwards',
             'scroll': 'scroll 40s linear infinite',
+            'slide-up-fade': 'slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'backdrop-fade': 'fadeIn 0.3s ease-out forwards',
           }
         }
       }
