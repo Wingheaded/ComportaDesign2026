@@ -20,7 +20,7 @@ const App: React.FC = () => {
   return (
     <div className="bg-light-sand relative">
       <Header language={language} setLanguage={setLanguage} />
-      <main>
+      <main className="relative z-10 mb-[400px] md:mb-[300px] bg-light-sand shadow-xl">
         <Hero language={language} />
         <About language={language} />
         <Exhibitions language={language} />

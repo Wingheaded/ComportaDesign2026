@@ -10,7 +10,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ language }) => {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    
+
     if (id === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       window.history.pushState(null, '', '#home');
@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
   };
 
   return (
-    <footer className="bg-light-sand py-12">
+    <footer className="fixed bottom-0 left-0 w-full -z-20 bg-light-sand py-12 border-t border-soft-black/10">
       <div className="container mx-auto px-6 text-center text-soft-black/70 max-w-7xl">
         <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
           <a href="#home" onClick={(e) => handleScroll(e, 'home')} className="hover:text-soft-black transition-colors">

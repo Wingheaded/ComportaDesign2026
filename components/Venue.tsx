@@ -8,6 +8,24 @@ interface VenueProps {
 }
 
 const Venue: React.FC<VenueProps> = ({ language }) => {
+  const [offset, setOffset] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById('venue');
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        // Only update if the element is somewhat visible to avoid unnecessary renders
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setOffset(window.scrollY - element.offsetTop);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section id="venue" className="bg-white py-20 md:py-32 scroll-mt-28">
       <div className="container mx-auto px-6 max-w-7xl">
@@ -19,9 +37,9 @@ const Venue: React.FC<VenueProps> = ({ language }) => {
             <p className="text-lg text-soft-black/80 mb-6 leading-relaxed">
               {CONTENT.venue.description[language]}
             </p>
-            <a 
-              href="https://www.google.com/maps/search/?api=1&query=Casa+da+Cultura+da+Comporta" 
-              target="_blank" 
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Casa+da+Cultura+da+Comporta"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-medium text-soft-black underline hover:opacity-75 transition-opacity"
             >
@@ -35,17 +53,20 @@ const Venue: React.FC<VenueProps> = ({ language }) => {
             <img
               src="https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/comporta/casa-exterior.jpg"
               alt="Exterior of the Casa da Cultura da Comporta, a white building with a green door and blue trim."
-              className="col-span-2 w-full h-full object-cover rounded-lg shadow-md"
+              className="col-span-2 w-full h-full object-cover rounded-lg shadow-md transition-transform duration-100 ease-out will-change-transform"
+              style={{ transform: `translateY(${offset * 0.1}px)` }}
             />
             <img
               src="https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/comporta/casa-interior.jpeg"
               alt="Wide-angle view of the empty, spacious interior of the Casa da Cultura, with concrete floors and a high wooden-beamed ceiling."
-              className="w-full h-full object-cover rounded-lg shadow-md"
+              className="w-full h-full object-cover rounded-lg shadow-md transition-transform duration-100 ease-out will-change-transform"
+              style={{ transform: `translateY(${offset * -0.05}px)` }}
             />
             <img
               src="https://raw.githubusercontent.com/Wingheaded/ComportaDesign2026/main/public/comporta/casa-seating.jpeg"
               alt="View from behind rows of wooden chairs looking towards the empty stage area inside the Casa da Cultura."
-              className="w-full h-full object-cover rounded-lg shadow-md"
+              className="w-full h-full object-cover rounded-lg shadow-md transition-transform duration-100 ease-out will-change-transform"
+              style={{ transform: `translateY(${offset * 0.08}px)` }}
             />
           </div>
         </div>
