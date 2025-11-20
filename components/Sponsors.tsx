@@ -27,11 +27,11 @@ const partners: Sponsor[] = [
 ];
 
 const SponsorLogo: React.FC<{ sponsor: Sponsor }> = ({ sponsor }) => (
-  <a 
-    href={sponsor.url} 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className="h-[250px] w-full flex items-center justify-center p-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+  <a
+    href={sponsor.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="h-[300px] w-[300px] flex-shrink-0 flex items-center justify-center p-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     aria-label={`Visit ${sponsor.name} website`}
   >
     <img src={sponsor.logo} alt={`${sponsor.name} logo`} className="max-h-full max-w-full object-contain" />
@@ -45,8 +45,21 @@ const Sponsors: React.FC<SponsorsProps> = ({ language }) => {
         <h2 className="text-sm font-medium tracking-wider text-soft-black/60 uppercase mb-10">
           {CONTENT.sponsors.partners[language]}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-4 items-center max-w-7xl mx-auto">
-          {partners.map(sponsor => <SponsorLogo key={sponsor.name} sponsor={sponsor} />)}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
+            {/* First set of logos */}
+            <div className="flex items-center gap-16 mx-8">
+              {partners.map((sponsor, index) => (
+                <SponsorLogo key={`a-${index}`} sponsor={sponsor} />
+              ))}
+            </div>
+            {/* Duplicate set for seamless scrolling */}
+            <div className="flex items-center gap-16 mx-8">
+              {partners.map((sponsor, index) => (
+                <SponsorLogo key={`b-${index}`} sponsor={sponsor} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
