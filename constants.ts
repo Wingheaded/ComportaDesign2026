@@ -57,7 +57,6 @@ interface ContentStructure {
   };
   hero: {
     title: LocalizedString;
-    subtitle: LocalizedString;
     date: LocalizedString;
     description: LocalizedString;
     ctaPrimary: LocalizedString;
@@ -154,10 +153,6 @@ export const CONTENT: ContentStructure = {
     title: {
       [Language.PT]: "Comporta Design 2026",
       [Language.EN]: "Comporta Design 2026",
-    },
-    subtitle: {
-      [Language.PT]: "Onde a autenticidade encontra o futuro.",
-      [Language.EN]: "Where authenticity meets the future.",
     },
     date: {
       [Language.PT]: "Abril — Maio 2026 · Casa da Cultura da Comporta",

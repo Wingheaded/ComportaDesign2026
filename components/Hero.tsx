@@ -34,9 +34,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
           <h1 className="font-grotesk font-medium text-5xl md:text-6xl lg:text-7xl !leading-[1.1] tracking-tighter text-soft-black opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             {CONTENT.hero.title[language]}
           </h1>
-          <p className="mt-6 text-xl md:text-2xl text-soft-black/80 font-light opacity-0 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            {CONTENT.hero.subtitle[language]}
-          </p>
+
           <div className="h-px w-24 bg-soft-black/20 my-8 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.4s' }}></div>
           <p className="text-sm font-medium tracking-widest text-soft-black/60 uppercase opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             {CONTENT.hero.date[language]}
