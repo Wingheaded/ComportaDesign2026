@@ -1,24 +1,12 @@
-
 import { GoogleGenAI } from "@google/genai";
 import type { Message } from '../types';
+import { getSystemInstruction } from './knowledgeBase';
 
-// robustly get API key without crashing
-const getApiKey = () => {
-  try {
-    // Check if process is defined globally
-    if (typeof process !== 'undefined' && process && process.env) {
-      return process.env.API_KEY;
-    }
-    // Fallback for Vite/other bundlers that might inject import.meta.env
-    // @ts-ignore
-    if (typeof import.meta !== 'undefined' && import.meta.env) {
-      // @ts-ignore
-      return import.meta.env.VITE_API_KEY || import.meta.env.API_KEY;
-    }
-  } catch (e) {
-    console.warn("Environment variable access failed", e);
-  }
-  return undefined;
+// Get API key from Vite environment variables
+const getApiKey = (): string | undefined => {
+  // In Vite, environment variables are accessed via import.meta.env
+  // Variables must be prefixed with VITE_ to be exposed to the client
+  return import.meta.env.VITE_API_KEY;
 };
 
 const API_KEY = getApiKey();
@@ -43,23 +31,23 @@ export const runChat = async (prompt: string, history: Message[]): Promise<strin
   if (!ai) {
     return "The chatbot is currently unavailable. Please try again later.";
   }
-  
+
   try {
     const chat = ai.chats.create({
       model: 'gemini-2.5-flash',
       history: transformHistoryForGemini(history),
       config: {
-        systemInstruction: `You are a helpful assistant for the Comporta Design 2026 event. Your knowledge base is: The event is named 'Comporta Design 2026' and takes place in April-May 2026 at Casa da Cultura da Comporta. Its motto is 'Where authenticity meets the future.' The event includes exhibitions and author cinema curated by Francisco Ferreira. Main sponsors are Thilburg, Passa ao Futuro, Poolins, MorDesign, and Wewood. Other partners include Fundação Herdade da Comporta, Tróia Design Hotel, Dils, Huître, Polestar, TUU, CÊ Studio Comporta, Câmara Municipal de Alcácer do Sal, Cinemateca, and Home-tec. The event is organized by CÊ Studio Comporta. When asked a question, use this information to answer. Keep answers concise and friendly. If a question is outside this scope, politely state that you only have information about the Comporta Design 2026 event.`,
+        systemInstruction: getSystemInstruction(),
       }
     });
 
     const response = await chat.sendMessage({ message: prompt });
-    return response.text;
+    return response.text || "Desculpe, não consegui gerar uma resposta.";
   } catch (error) {
     console.error("Error running chat with Gemini:", error);
     if (error instanceof Error) {
-        return `I'm sorry, I encountered an error: ${error.message}`;
+      return `Desculpe, ocorreu um erro: ${error.message}`;
     }
-    return "I'm sorry, I was unable to get a response. Please try again later.";
+    return "Desculpe, não foi possível obter uma resposta. Por favor, tente novamente mais tarde.";
   }
 };

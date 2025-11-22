@@ -113,12 +113,6 @@ interface ContentStructure {
   chat: {
     initialMessage: LocalizedString;
     placeholder: LocalizedString;
-    voiceButton: LocalizedString;
-    listening: LocalizedString;
-    speaking: LocalizedString;
-    voiceNotSupported: LocalizedString;
-    microphoneError: LocalizedString;
-    voiceError: LocalizedString;
   }
 }
 
@@ -802,30 +796,6 @@ export const CONTENT: ContentStructure = {
     placeholder: {
       [Language.PT]: "Digite a sua mensagem...",
       [Language.EN]: "Type your message...",
-    },
-    voiceButton: {
-      [Language.PT]: "Falar",
-      [Language.EN]: "Speak",
-    },
-    listening: {
-      [Language.PT]: "A ouvir...",
-      [Language.EN]: "Listening...",
-    },
-    speaking: {
-      [Language.PT]: "A falar...",
-      [Language.EN]: "Speaking...",
-    },
-    voiceNotSupported: {
-      [Language.PT]: "Voz não suportada neste navegador",
-      [Language.EN]: "Voice not supported in this browser",
-    },
-    microphoneError: {
-      [Language.PT]: "Erro ao aceder ao microfone. Verifique as permissões.",
-      [Language.EN]: "Error accessing microphone. Please check permissions.",
-    },
-    voiceError: {
-      [Language.PT]: "Erro no reconhecimento de voz. Tente novamente.",
-      [Language.EN]: "Voice recognition error. Please try again.",
     }
   }
 };
