@@ -1,0 +1,7 @@
+{
+  "name": "Comporta Design 2026",
+  "description": "A sophisticated, bilingual landing page for the Comporta Design 2026 event, featuring an AI-powered chatbot to answer visitor questions.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

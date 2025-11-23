@@ -13,8 +13,8 @@ const extractTextFromParagraphs = (paragraphs: Paragraph[], lang: Language): str
     }).join('\n');
 };
 
-export const getSystemInstruction = (): string => {
-    const lang = Language.PT; // Always use Portuguese for internal knowledge base to ensure consistency
+export const getSystemInstruction = (targetLanguage: Language = Language.PT): string => {
+    const lang = Language.PT; // Always use Portuguese for internal knowledge base content extraction
 
     // 1. Event Overview
     const overview = `
@@ -57,10 +57,14 @@ SYNOPSIS: ${movie.summary[lang]}
     // 5. Venue & Contacts
     const venue = `${CONTENT.venue.title[lang]}. ${CONTENT.venue.description[lang]}`;
 
+    const languageInstruction = targetLanguage === Language.PT
+        ? "IMPORTANT: You must ALWAYS respond in Portuguese (European Portuguese)."
+        : "IMPORTANT: You must ALWAYS respond in English.";
+
     return `
 You are a helpful assistant for the Comporta Design 2026 event.
 
-IMPORTANT: You must ALWAYS respond in Portuguese (European Portuguese), regardless of the language the user uses to ask questions.
+${languageInstruction}
 
 FORMATTING: Do NOT use markdown formatting (asterisks, bold, italic, etc.) in your responses. Use plain text only, as your responses will be spoken aloud.
 
@@ -93,6 +97,6 @@ INSTRUCTIONS:
 - If asked about specific exhibitors (like Thilburg, WeWood), use the detailed descriptions provided in their specific block but **summarize it**.
 - If asked about movies, provide the title, director, date, and a brief summary. 
 - **RECOMMENDATIONS**: If asked, recommend movies or exhibitors related to the user's query. You can also ask the user for more details on their goals for the event and recommend a movie/exhibitor based on those goals.
-- If a question is outside this scope, politely state in Portuguese that you only have information about the Comporta Design 2026 event.
+- If a question is outside this scope, politely state that you only have information about the Comporta Design 2026 event.
 `;
 };

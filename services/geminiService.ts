@@ -6,7 +6,8 @@ import { getSystemInstruction } from './knowledgeBase';
 const getApiKey = (): string | undefined => {
   // In Vite, environment variables are accessed via import.meta.env
   // Variables must be prefixed with VITE_ to be exposed to the client
-  return import.meta.env.VITE_API_KEY;
+  // We also check process.env for variables defined in vite.config.ts
+  return import.meta.env.VITE_API_KEY || process.env.GEMINI_API_KEY || process.env.API_KEY;
 };
 
 const API_KEY = getApiKey();

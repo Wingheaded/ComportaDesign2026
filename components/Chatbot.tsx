@@ -3,8 +3,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Language, Message } from '../types';
 import { CONTENT } from '../constants';
 import { runChat } from '../services/geminiService';
-import { VoiceRecognitionService, isVoiceSupported } from '../services/voiceService';
-import { GoogleTTSService } from '../services/googleTTSService';
 
 interface ChatbotProps {
   language: Language;
@@ -24,50 +22,12 @@ const CloseIcon = () => (
   </svg>
 );
 
-const MicrophoneIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-    <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
-  </svg>
-);
-
 const Chatbot: React.FC<ChatbotProps> = ({ language, isChatOpen, setIsChatOpen }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isListening, setIsListening] = useState(false);
-  const [isSpeaking, setIsSpeaking] = useState(false);
-  const [voiceSupported, setVoiceSupported] = useState(false);
-  const [interimTranscript, setInterimTranscript] = useState('');
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const voiceRecognitionRef = useRef<VoiceRecognitionService | null>(null);
-  const googleTTSRef = useRef<GoogleTTSService | null>(null);
-
-  // Initialize voice services
-  useEffect(() => {
-    const supported = isVoiceSupported();
-    setVoiceSupported(supported);
-
-    if (supported) {
-      voiceRecognitionRef.current = new VoiceRecognitionService(language);
-    }
-
-    // Always initialize Google TTS as it uses Audio API which is widely supported
-    googleTTSRef.current = new GoogleTTSService();
-
-    return () => {
-      if (googleTTSRef.current) {
-        googleTTSRef.current.stop();
-      }
-    };
-  }, []);
-
-  // Update language when it changes
-  useEffect(() => {
-    if (voiceRecognitionRef.current) {
-      voiceRecognitionRef.current.updateLanguage(language);
-    }
-  }, [language]);
 
   useEffect(() => {
     setMessages([{ sender: 'bot', text: CONTENT.chat.initialMessage[language] }]);
@@ -79,108 +39,28 @@ const Chatbot: React.FC<ChatbotProps> = ({ language, isChatOpen, setIsChatOpen }
 
   useEffect(scrollToBottom, [messages]);
 
-  const handleSendMessage = async (e?: React.FormEvent, messageText?: string) => {
+  const handleSendMessage = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
 
-    const textToSend = messageText || input;
+    const textToSend = input;
     if (!textToSend.trim() || isLoading) return;
 
     const userMessage: Message = { sender: 'user', text: textToSend };
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
     setInput('');
-    setInterimTranscript('');
     setIsLoading(true);
-
-    // Stop any current speech when sending new message
-    if (googleTTSRef.current) {
-      googleTTSRef.current.stop();
-      setIsSpeaking(false);
-    }
 
     try {
       const botResponseText = await runChat(textToSend, newMessages);
       const botMessage: Message = { sender: 'bot', text: botResponseText };
       setMessages(prev => [...prev, botMessage]);
-
-      // Speak the response using Google TTS
-      if (googleTTSRef.current && !isSpeaking) {
-        setIsSpeaking(true);
-        googleTTSRef.current.speak(botResponseText)
-          .then(() => {
-            setIsSpeaking(false);
-          })
-          .catch(err => {
-            console.error("TTS Error:", err);
-            setIsSpeaking(false);
-          });
-      }
     } catch (error) {
       console.error("Failed to get response from bot:", error);
       const errorMessage: Message = { sender: 'bot', text: "Sorry, I'm having trouble connecting right now." };
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const handleVoiceInput = () => {
-    if (!voiceRecognitionRef.current || isLoading) return;
-
-    // Stop speaking if listening starts
-    if (googleTTSRef.current) {
-      googleTTSRef.current.stop();
-      setIsSpeaking(false);
-    }
-
-    if (isListening) {
-      // Stop listening
-      voiceRecognitionRef.current.stop();
-      setIsListening(false);
-      setInterimTranscript('');
-    } else {
-      // Start listening
-      const success = voiceRecognitionRef.current.start({
-        onResult: (transcript, isFinal) => {
-          if (isFinal) {
-            // Final result - send the message
-            setInterimTranscript('');
-            handleSendMessage(undefined, transcript);
-          } else {
-            // Interim result - show in input
-            setInterimTranscript(transcript);
-          }
-        },
-        onError: (error) => {
-          console.error('Voice recognition error:', error);
-          setIsListening(false);
-          setInterimTranscript('');
-
-          // Show error message
-          const errorMsg = CONTENT.chat.voiceError[language];
-          setMessages(prev => [...prev, { sender: 'bot', text: errorMsg }]);
-        },
-        onEnd: () => {
-          setIsListening(false);
-          setInterimTranscript('');
-        }
-      });
-
-      if (success) {
-        setIsListening(true);
-      } else {
-        const errorMsg = CONTENT.chat.microphoneError[language];
-        setMessages(prev => [...prev, { sender: 'bot', text: errorMsg }]);
-      }
-    }
-  };
-
-  const toggleSpeaking = () => {
-    if (googleTTSRef.current) {
-      if (isSpeaking) {
-        googleTTSRef.current.stop();
-        setIsSpeaking(false);
-      }
     }
   };
 
@@ -227,55 +107,17 @@ const Chatbot: React.FC<ChatbotProps> = ({ language, isChatOpen, setIsChatOpen }
           <div ref={messagesEndRef} />
         </div>
         <div className="p-4 border-t border-soft-gray">
-          {/* Voice status indicator */}
-          {(isListening || isSpeaking) && (
-            <div className="mb-2 text-xs text-center">
-              {isListening && (
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-red-700">
-                  <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></span>
-                  {CONTENT.chat.listening[language]}
-                </span>
-              )}
-              {isSpeaking && (
-                <button
-                  onClick={toggleSpeaking}
-                  className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors"
-                >
-                  <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse mr-2"></span>
-                  {CONTENT.chat.speaking[language]}
-                </button>
-              )}
-            </div>
-          )}
-
           <form onSubmit={handleSendMessage} className="flex space-x-2">
             <input
               type="text"
-              value={interimTranscript || input}
+              value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={CONTENT.chat.placeholder[language]}
               className="flex-1 px-4 py-2 border border-medium-gray rounded-full focus:outline-none focus:ring-2 focus:ring-soft-black/50"
-              disabled={isLoading || isListening}
+              disabled={isLoading}
             />
 
-            {/* Voice input button */}
-            {voiceSupported && (
-              <button
-                type="button"
-                onClick={handleVoiceInput}
-                className={`p-2 rounded-full transition-colors ${isListening
-                  ? 'bg-red-500 text-white hover:bg-red-600'
-                  : 'bg-soft-gray text-soft-black hover:bg-medium-gray'
-                  }`}
-                disabled={isLoading}
-                aria-label={CONTENT.chat.voiceButton[language]}
-                title={CONTENT.chat.voiceButton[language]}
-              >
-                <MicrophoneIcon />
-              </button>
-            )}
-
-            <button type="submit" className="bg-soft-black text-white px-4 rounded-full disabled:bg-opacity-50" disabled={isLoading || (!input.trim() && !interimTranscript)}>
+            <button type="submit" className="bg-soft-black text-white px-4 rounded-full disabled:bg-opacity-50" disabled={isLoading || !input.trim()}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
               </svg>

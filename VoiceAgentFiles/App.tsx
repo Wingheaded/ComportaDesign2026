@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Language } from './types';
 import Header from './components/Header';
@@ -20,7 +21,7 @@ const App: React.FC = () => {
   return (
     <div className="bg-light-sand relative">
       <Header language={language} setLanguage={setLanguage} />
-      <main className="relative z-10 mb-[400px] md:mb-[300px] bg-light-sand shadow-xl">
+      <main>
         <Hero language={language} />
         <About language={language} />
         <Exhibitions language={language} />
