@@ -148,6 +148,7 @@ export const startRecording = async () => {
             const base64Data = encodeBase64(new Uint8Array(int16.buffer));
 
             try {
+                if (!activeSession) return;
                 activeSession.sendRealtimeInput({
                     media: {
                         mimeType: "audio/pcm;rate=16000",
@@ -155,7 +156,10 @@ export const startRecording = async () => {
                     }
                 });
             } catch (e) {
-                console.error("Error sending audio data:", e);
+                // Ignore errors if session is closing
+                if (activeSession) {
+                    console.error("Error sending audio data:", e);
+                }
             }
         };
 
