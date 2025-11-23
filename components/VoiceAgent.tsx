@@ -26,9 +26,17 @@ const VoiceAgent: React.FC<VoiceAgentProps> = ({ language }) => {
                 await connectToLiveAPI(getSystemInstruction(language));
                 await startRecording();
                 setIsActive(true);
-            } catch (err) {
+            } catch (err: any) {
                 console.error(err);
-                setError("Failed to connect. Microphone access needed.");
+                let errorMessage = "Failed to connect.";
+                if (err.message) {
+                    errorMessage = err.message;
+                } else if (err.toString().includes("Permission denied")) {
+                    errorMessage = "Microphone access denied.";
+                } else {
+                    errorMessage = "Connection failed. Check API key or network.";
+                }
+                setError(errorMessage);
                 disconnectLiveAPI();
             } finally {
                 setIsConnecting(false);
