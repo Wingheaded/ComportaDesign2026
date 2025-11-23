@@ -133,18 +133,30 @@ export const startRecording = async () => {
             // Convert Float32 to Int16 (PCM)
             const l = inputData.length;
             const int16 = new Int16Array(l);
+            let sum = 0;
             for (let i = 0; i < l; i++) {
-                int16[i] = inputData[i] * 32768;
+                const s = Math.max(-1, Math.min(1, inputData[i]));
+                int16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+                sum += Math.abs(s);
+            }
+
+            // Log volume every ~100 chunks to avoid spam, or if volume is very low
+            if (Math.random() < 0.01) {
+                console.log("Audio Input Volume:", sum / l);
             }
 
             const base64Data = encodeBase64(new Uint8Array(int16.buffer));
 
-            activeSession.sendRealtimeInput({
-                media: {
-                    mimeType: "audio/pcm;rate=16000",
-                    data: base64Data
-                }
-            });
+            try {
+                activeSession.sendRealtimeInput({
+                    media: {
+                        mimeType: "audio/pcm;rate=16000",
+                        data: base64Data
+                    }
+                });
+            } catch (e) {
+                console.error("Error sending audio data:", e);
+            }
         };
 
         audioInput.connect(audioProcessor);
